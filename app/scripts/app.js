@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('kyronTravelApp', ['ngRoute'])
+angular.module('geekValetLanding', ['ngRoute'])
   .config(['$routeProvider',function($routeProvider){
     $routeProvider.when('/', {
         templateUrl: 'views/main.html',

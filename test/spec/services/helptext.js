@@ -3,7 +3,7 @@
 describe('Service: helpText', function () {
 
   // load the service's module
-  beforeEach(module('kyronTravelApp'));
+  beforeEach(module('geekValetLanding'));
 
   // instantiate service
   var helpText;
