@@ -3,9 +3,7 @@
   var helpText;
   helpText = {
     staticText: {
-      darkContainerText: 'Travel to experience more. We are a community of local experts and guides crafting personalized travel experiences that will change the way you will interact with the world.',
-      uspText: 'Our unique proposition goes here',
-      comeJoinCommunity: 'We are looking for more members. Lorem ipsum.Lorem ipsumLorem ipsumLorem ipsumLorem ipsum'
+      darkContainerText: 'We know it is not cool. People like you should not be worrying about things like mowing. A supersolution to handle all your household services is on its way. And you won\'t see it coming.',
     }
   };
   angular.module('kyronTravelApp').constant('helpText', helpText);
