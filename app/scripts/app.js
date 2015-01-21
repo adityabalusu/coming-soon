@@ -5,7 +5,6 @@ angular.module('geekValetLanding', ['ngRoute'])
     $routeProvider.when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        title: 'Explore a new World'
       })
 
   }])  
