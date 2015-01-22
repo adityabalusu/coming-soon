@@ -17,9 +17,9 @@
   </p>
   <div class="email-container col-lg-12">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Your Email here...">
+        <input type="email" class="form-control" ng-model='user.email' placeholder="your email here...">
         <span class="input-group-btn">
-          <button class="btn btn-warning" type="button">Tell me when you launch</button>
+          <button class="btn btn-warning" ng-click='openDialog()' type="button">Tell me when you launch</button>
         </span>
     </div>
   </div>

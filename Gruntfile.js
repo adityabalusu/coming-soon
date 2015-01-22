@@ -17,11 +17,6 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
-    uglify:{
-      options:{
-        mangle:false
-      }
-    },
     // Project settings
     yeoman: {
       // configurable paths
