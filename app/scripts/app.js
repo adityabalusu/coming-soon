@@ -9,8 +9,9 @@ angular.module('geekValetLanding', ['ngRoute'])
 
   }])  
 
-  .run(['$rootScope','helpText',function(rootScope,helpText){
+  /*.run(['$rootScope','helpText',function(rootScope,helpText){
         rootScope.helpText = helpText;
 
 
        }]);
+  */
