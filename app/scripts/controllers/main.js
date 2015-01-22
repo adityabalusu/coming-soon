@@ -9,7 +9,7 @@ angular.module('geekValetLanding')
             template:'views/feedback.html',
             scope:$scope,
             showClose:false,
-            className: 'ngdialog-theme-plain'
+            className: 'ngdialog-theme-default'
          })
        }
 
