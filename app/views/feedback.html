@@ -1,5 +1,10 @@
+<div class='centered'>
+    <h1 class="lead">l'rite</h1>
+    <p class="lead" ng-bind-html='helpText.staticText.thankyoumsg'></p>
+</div>
+
 <div class="input-group">
-    <input type="text" class="form-control" ng-model='user.feedback' placeholder="Please tell us which service you need">
+    <input type="text" class="form-control" ng-model='user.feedback' placeholder="Plumber, Electrician, Mechanic? Anything">
     <span class="input-group-btn">
         <button class="btn btn-warning" ng-click='submit()' type="button">Submit</button>
     </span>

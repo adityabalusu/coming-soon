@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog'])
+angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog','ngSanitize'])
   .config(['$routeProvider','RestangularProvider',function($routeProvider,RestangularProvider){
     $routeProvider.when('/', {
         templateUrl: 'views/main.html',
