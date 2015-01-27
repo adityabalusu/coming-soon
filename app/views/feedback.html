@@ -1,16 +1,18 @@
-<div class='centered' ng-hide='submittedFeedback'>
-    <h1 class="lead">l'rite</h1>
-    <p class="lead" ng-bind-html='helpText.staticText.thankyoumsg'></p>
+<div ng-hide='submittedFeedback'>
+    <div class='centered' >
+        <h1 class="lead">l'rite</h1>
+        <p class="lead" ng-bind-html='helpText.staticText.thankyoumsg'></p>
+    </div>
+    <div class="input-group">
+        <input type="text" class="form-control" ng-model='user.feedback' placeholder="Plumber, Electrician, Mechanic? Anything">
+        <span class="input-group-btn">
+            <button class="btn btn-warning" ng-click='submit()' type="button">Submit</button>
+        </span>
+    </div>
 </div>
+
 <div class='centered' ng-show='submittedFeedback'>
     <h1>
         <i class='tick fa fa-check-circle'></i>
     </h1>
-</div>
-
-<div class="input-group">
-    <input type="text" class="form-control" ng-model='user.feedback' placeholder="Plumber, Electrician, Mechanic? Anything">
-    <span class="input-group-btn">
-        <button class="btn btn-warning" ng-click='submit()' type="button">Submit</button>
-    </span>
 </div>
