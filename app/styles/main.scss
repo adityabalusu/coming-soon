@@ -14,9 +14,6 @@ $fa-font-path: "../bower_components/fontawesome/fonts/";
     color: #000;
     padding: 0.2em 0;
 }
-html{
-    background-color:rgb(254,253,244);
-}
 /* Space out content a bit */
 body {
     
@@ -81,25 +78,35 @@ body {
 .marketing p + h4 {
     margin-top: 28px;
 }
-
+.love{
+    font-size:50px;
+    color:crimson;
+    text-align:center !important;
+}        
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
         width:100%;
         padding:0;
+        
         .box{
             padding: 48px;
             position:relative;
             top:-150px;
             width:50%;
             h1{
-                color:white;
+                color:#f0ad4e;
+            }
+            .tagline{
+                color:white
             }
             h4{
               margin: 20px 0px;
             }
             p{
              color: #999;
+             font-family:kreon;
+             font-size:18px;
             }
             .email-container {
                 padding:0px;
@@ -152,7 +159,7 @@ body {
 -------------------------------------------------- */
 
 #wrap > .container {
-  padding: 60px 15px 0;
+  padding: 60px 5px 0;
 }
 .container .credit {
   margin: 20px 0;
@@ -172,7 +179,7 @@ h1,h2,h3,h4 {
 }
 
 header {
-  background: url(../images/ignore/concierge.jpg);
+  background: url(../images/ignore/concierge-red.jpg);
   height:550px;
   color:#000000;
 }
@@ -263,6 +270,15 @@ h1 {
 
 .panel {
     border-width:0;
+    background-color:rgba(200,200,200,0.3);
+    text-align: center;
+    .panel-body {
+     padding:10px;
+     .lead{
+        font-size:18px;
+        margin-bottom:10px;
+     }
+    }
 }
 
 @media (max-width: 768px) {
@@ -291,7 +307,9 @@ h1 {
 .scroll-top a:link,.scroll-top a:visited {
   color:#222;
 } 
- 
+.contact-us {
+    font-size: 30px;
+}
 
 section {
   color: #ffffff;
@@ -302,7 +320,7 @@ section {
 }
 
 .bg-1 {
-    background: url('http://www.bootply.com/assets/example/bg_4.jpg') no-repeat center center fixed; 
+    background: url('../images/ignore/services.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -318,7 +336,7 @@ section {
 }
 
 .bg-3 {
-    background: url('http://www.bootply.com/assets/example/bg_6.jpg') no-repeat center center fixed; 
+    background: url('../images/ignore/beach_football.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

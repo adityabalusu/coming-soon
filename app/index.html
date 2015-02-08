@@ -49,7 +49,8 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/jquery.js"></script>
+    <!--script src="bower_components/jquery/jquery.js"></script-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
@@ -63,12 +64,17 @@
         <!-- endbuild -->
 
 
+        <!-- build:js({.tmp,app}) scripts/template.js -->
+        <script src="scripts/template.js"></script>
+        <!-- endbuild -->
+        
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/services/helpText.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/services/api.js"></script>
         <!-- endbuild -->
+
 
 </body>
 </html>
