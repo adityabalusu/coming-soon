@@ -1,2 +1,2 @@
 # geekvalet
-Repo for landing page for kyron
+Repo for coming soon page for sevame
