@@ -1,2 +1,2 @@
-# kyron-travel
+# geekvalet
 Repo for landing page for kyron
