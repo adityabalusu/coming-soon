@@ -196,9 +196,21 @@
       <p>
       We love our patrons. Especially the early birds. We will be doling exciting offers for our privileged customers who sign-up early. Heck,  the first job might be on us!
       </p>
-      <div class="love">
+      
+      
+      <div class="email-container col-lg-8 col-sm-offset-2">
+        <div class="input-group">
+            <input type="email" class="form-control" ng-model='user.email' placeholder="your email here...">
+            <span class="input-group-btn">
+              <button class="btn btn-warning" ng-click='openDialog()' type="button">Sign Up </button>
+            </span>
+        </div>
+      </div>
+      <br>
+      <div class="love col-lg-8 col-sm-offset-2">
        <i class='fa fa-heart '></i>
       </div>
+
       
       
     </div><!--/col-->
@@ -229,8 +241,6 @@
   
 </div><!--/wrap-->
 
-<ul class="nav pull-right scroll-top">
-  <li><a href="#/#top" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
-</ul>
+
 
   
