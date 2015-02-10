@@ -33,17 +33,20 @@
       <div class="header">
     </div>
     <div class='box'>
-      <h1>We've got you covered.</h1>
+      <h1>Coming Soon.</h1>
       <p class="lead" ng-bind-html='helpText.staticText.darkContainerText'></p>
-      <p class='tagline'>We feel your pain. Hence we are simplifying service procurement so that you spend more time on things that matter.</p>
+      <p class='tagline'>Sevame, a one-stop solution for all your service needs, is on its way. That concealed keymaker or the perfect cook will just be a few clicks away.</p>
+      <p>Read more below.</p>
+      
       <div class="email-container col-lg-12">
         <div class="input-group">
-            <input type="email" class="form-control" ng-model='user.email' placeholder="your email here...">
+            <input type="email" class="form-control" ng-model='user.email' ng-focus='onSignUpFocus()' ng-blur='onSignUpBlur()' placeholder="{{placeholdertext}}">
             <span class="input-group-btn">
               <button class="btn btn-warning" ng-click='openDialog()' type="button">Tell me when you launch</button>
             </span>
         </div>
       </div>
+      
 
     </div>
     </div>
@@ -52,7 +55,7 @@
   
   
 <!-- Fixed navbar -->
-<div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
+<div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav" ui-scrollfix >
     <div class="container" id='section1'>
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -81,7 +84,7 @@
 
     </div>
     <p class="text-center">
-      We are a bunch of IITians equipped with the finest technological expertise out there. At Sevame, We understand the complexity involved in provisioning a service. Driven by our cutting-edge technology and an innovative operations model, we set out to build a product which can act as a platform to connect any customer to any service need. Half-way through in building something very simple and extremely lovable, we would like to talk to you. 
+      At Sevame, We understand the complexity involved in provisioning a service. Driven by our cutting-edge technology and an innovative operations model, we set out to build a product which can act as a platform to connect any customer to any service need. Half-way through in building something extremely lovable, we would like to talk to you. 
     </p>
     
     <div class="love">

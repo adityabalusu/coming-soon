@@ -8,7 +8,8 @@
     "jquery": "~1.10.2",
     "ngDialog": "~0.1.3",
     "sass-bootstrap": "~3.0.2",
-    "fontawesome": "~4.2.0"
+    "fontawesome": "~4.2.0",
+    "angular-ui-utils": "bower-scrollfix"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",

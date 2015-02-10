@@ -18,7 +18,9 @@ $fa-font-path: "../bower_components/fontawesome/fonts/";
 body {
     
 }
-
+.orange{
+  color:orange;
+}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -215,7 +217,7 @@ h1 {
   top:-32px;
 }
 
-#nav.affix {
+#nav.ui-scrollfix {
    position: fixed;
    top: 0;
    z-index:10;
