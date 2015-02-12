@@ -1,10 +1,18 @@
 'use strict';
 
 angular.module('geekValetLanding')
-  .controller('MainCtrl',['$scope','Api','ngDialog',function ($scope,api,ngDialog) {
+  .controller('MainCtrl',['$scope','$anchorScroll','$location','Api','ngDialog','$document',function ($scope,$anchorScroll,$location,api,ngDialog,$document) {
     
+    $scope.document = $document;
     $scope.user = {};
-    $scope.placeholdertext = 'Sign up now and your first job will be on us.'
+    $scope.placeholdertext = 'Sign up now.Your first job(upto Rs.300) will be on us.'
+
+    $scope.scrollTo = function(id,offset){
+      var element = $('#'+id);
+      $scope.document.duScrollToElement(element,offset,1000,TWEEN.Easing.Quadratic.Out)
+
+    }
+
     $scope.submit = function(){
         var postdata = {email:$scope.user.email,feedback:$scope.user.feedback}
         api.signUp.post(postdata).then(function(response){

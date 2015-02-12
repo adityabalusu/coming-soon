@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog','ngSanitize','ui.scrollfix'])
+angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog','ngSanitize','ui.scrollfix','duScroll'])
+  .value('duScrollGreedy', true)
   .config(['$routeProvider','RestangularProvider',function($routeProvider,RestangularProvider){
     $routeProvider.when('/', {
         templateUrl: 'views/main.html',
@@ -10,8 +11,9 @@ angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog','ngSaniti
 
   }])  
 
-  .run(['$rootScope','helpText',function(rootScope,helpText){
+  .run(['$rootScope','helpText','$anchorScroll',function(rootScope,helpText,$anchorScroll){
         rootScope.helpText = helpText;
+        //$anchorScroll.yOffset = 52;
          
       }]);
   
