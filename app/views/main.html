@@ -33,12 +33,12 @@
     <div class='box'>
       <h1>COMING SOON!</h1>
       <p class="lead" ng-bind-html='helpText.staticText.darkContainerText'></p>
-      <p class='tagline'>Sevam&eacute, a one-stop solution for all your service needs, is on its way. Availing services will never be the same again.</p>
+      <p class='tagline'><span>Sevam&eacute,</span> a one-stop solution for all your service needs, is on its way. Availing services will never be the same again.</p>
       <div class="email-container col-lg-12">
         <div class="input-group">
-            <input type="email" class="form-control" ng-model='user.email' ng-focus='onSignUpFocus()' ng-blur='onSignUpBlur()' placeholder="{{placeholdertext}}">
+            <input type="email"  class="form-control" ui-keypress="{'enter':'openDialog()'}" ng-model='user.email' ng-focus='onSignUpFocus()' ng-blur='onSignUpBlur()' placeholder="{{placeholdertext}}">
             <span class="input-group-btn">
-              <button class="btn btn-warning" ng-click='openDialog()' type="button">Tell me when you launch</button>
+              <button class="btn btn-warning" ng-click='openDialog()'  type="button">Tell me when you launch</button>
             </span>
         </div>
       </div>
@@ -57,7 +57,7 @@
         <ul class="nav navbar-nav nav-justified">
           <li du-scrollspy="top" offset='52px'><a href='' ng-click="scrollTo('top',52)" href="">Home</a></li>
           <li du-scrollspy="product" offset='52px'><a href=""   ng-click="scrollTo('product',52)">Sevame</a></li>
-          <li du-scrollspy="signup" offset='52px'><a href=""   ng-click="scrollTo('signup',52)">Sign-up privileges</a></li>
+          <li du-scrollspy="signup" offset='52px'><a href=""   ng-click="scrollTo('signup',52)">For the Early Birds</a></li>
           <li du-scrollspy="contact" offset='52px'><a href=""   ng-click="scrollTo('contact',52)">Contact</a></li>
         </ul>
       </div><!--/.nav-collapse -->
@@ -70,7 +70,7 @@
     <div class="page-header text-center">
       <h1>Seva at your <i>fingertip.</i></h1>
       <p>We have currently short listed a small set of services to offer. More will be rolled out soon.</p>
-      <p>Wish we had more? You can tell us during sign-up or <a href='' ng-click="scrollTo('contact')">drop</a> us a word</p>
+      <p>Wish we had more? You can tell us by signing up or <a href='' ng-click="scrollTo('contact')">drop us a word</a> </p>
 
     </div>
     <div class="row">
@@ -162,7 +162,7 @@
       <div class='wrapper-box'>
         <div class="email-container col-lg-8 col-sm-offset-2">
           <div class="input-group">
-              <input type="email" class="form-control" ng-model='user.email' placeholder="your email here...">
+              <input type="email" class="form-control" ui-keypress="{'enter':'openDialog()'}" ng-model='user.email' placeholder="your email here...">
               <span class="input-group-btn">
                 <button class="btn btn-warning" ng-click='openDialog()' type="button">Sign Up </button>
               </span>

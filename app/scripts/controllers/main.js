@@ -29,14 +29,18 @@ angular.module('geekValetLanding')
      $scope.openDialog = function(){
         var postdata = {email:$scope.user.email}
         $scope.submittedFeedback = false;
-        api.signUp.post(postdata).then(function(response){
-          ngDialog.open({
-            template:'views/feedback.html',
-            scope:$scope,
-            showClose:false,
-            className: 'ngdialog-theme-default'
-          })      
-        });
+        if($scope.user.email){
+          api.signUp.post(postdata).then(function(response){
+            ngDialog.open({
+              template:'views/feedback.html',
+              scope:$scope,
+              showClose:false,
+              className: 'ngdialog-theme-default'
+            })      
+          });
+        }else{
+          $scope.placeholdertext = 'valid email id is required'
+        }
     }
                 
 }]);

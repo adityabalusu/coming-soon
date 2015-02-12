@@ -11,7 +11,7 @@
     </div>
     <div class='row'>
       <div class="extra-info input-group">
-          <input type="text" class="form-control" ng-model='user.feedback' placeholder="Anything you'd want to tell us?">
+          <input type="text" class="form-control" ui-keypress="{'enter':'submit()'}" ng-model='user.feedback' placeholder="Anything you'd want to tell us?">
           <span class="input-group-btn">
               <button class="btn btn-warning" ng-click='submit()' type="button">Submit</button>
           </span>
