@@ -1,15 +1,21 @@
 <div ng-hide='submittedFeedback'>
     <div class='centered' >
           <h1>
-            <i class='tick fa fa-smile-o'></i>
+            <i class='smile fa fa-smile-o'></i>
           </h1>
+          <h1>
+            Thanks
+          </h1>
+          
         <p class="lead" ng-bind-html='helpText.staticText.thankyoumsg'></p>
     </div>
-    <div class="input-group">
-        <input type="text" class="form-control" ng-model='user.feedback' placeholder="Anything you'd want to tell us?">
-        <span class="input-group-btn">
-            <button class="btn btn-warning" ng-click='submit()' type="button">Submit</button>
-        </span>
+    <div class='row'>
+      <div class="extra-info input-group">
+          <input type="text" class="form-control" ng-model='user.feedback' placeholder="Anything you'd want to tell us?">
+          <span class="input-group-btn">
+              <button class="btn btn-warning" ng-click='submit()' type="button">Submit</button>
+          </span>
+      </div>
     </div>
     <div class='row'>
         <div class="col-sm-4 col-xs-6">

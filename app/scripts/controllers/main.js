@@ -24,7 +24,7 @@ angular.module('geekValetLanding')
       $scope.placeholdertext='Your email id here'
     }
     $scope.onSignUpBlur=function(){
-      $scope.placeholdertext='Sign up now and your first job(upto Rs.300) will be on us.'
+      $scope.placeholdertext='Sign up now.Your first job(upto Rs.300) will be on us.'
     }
      $scope.openDialog = function(){
         var postdata = {email:$scope.user.email}
