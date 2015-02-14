@@ -58,6 +58,7 @@
           <li du-scrollspy="top" offset='52px'><a href='' ng-click="scrollTo('top',52)" href="">Home</a></li>
           <li du-scrollspy="product" offset='52px'><a href=""   ng-click="scrollTo('product',52)">Sevame</a></li>
           <li du-scrollspy="signup" offset='52px'><a href=""   ng-click="scrollTo('signup',52)">For the Early Birds</a></li>
+          <li du-scrollspy="where" offset='52px'><a href=""   ng-click="scrollTo('where',52)">Where?</a></li>
           <li du-scrollspy="contact" offset='52px'><a href=""   ng-click="scrollTo('contact',52)">Contact</a></li>
         </ul>
       </div><!--/.nav-collapse -->
@@ -183,14 +184,30 @@
   
 <div class="divider"></div>
 <section class="bg-3" >
-  <div id="contact" class="col-sm-6 col-sm-offset-3 text-center"><h2>Choose. Connect . Chill .</h2></div>
+  <div class="col-sm-6 col-sm-offset-3 text-center"><h2>Choose. Connect . Chill .</h2></div>
 </section>
   
 
 
-<div class="divider" ></div>
+<div class="divider" > </div>
 
-<div class="container" >
+
+<div class="container" id="where" >
+    <div class="col-sm-8 col-sm-offset-2 text-center" >
+      
+      <hr>
+      <h3>
+        Currently serving only in Bangalore,India.
+      </h3>
+      <hr>
+      
+      
+    </div><!--/col-->
+</div><!--/container-->
+<section class="bg-4 map" >
+  <leaflet center="center" defaults='mapconfig' paths='circle' markers='koramangala' height="600px" width="1280px"></leaflet>
+</section>
+<div class="container" id="contact">
     <div class="col-sm-8 col-sm-offset-2 text-center" >
       <h3>We'd love to hear from you! Beckoning all service aficionados to join us in our journey.</p></h3>
       <hr>

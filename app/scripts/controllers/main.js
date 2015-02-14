@@ -4,6 +4,45 @@ angular.module('geekValetLanding')
   .controller('MainCtrl',['$scope','$anchorScroll','$location','Api','ngDialog','$document',function ($scope,$anchorScroll,$location,api,ngDialog,$document) {
     
     $scope.document = $document;
+    angular.extend($scope, {
+      mapconfig: {
+                    tileLayer: "http://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg",
+                    zoomControl: false,
+                    tileLayerOptions: {
+                        opacity: 0.9,
+                        detectRetina: true,
+                        reuseTiles: true,
+                    },
+                    scrollWheelZoom: false
+      },
+      circle:{
+        shapes:{
+                    type: "circle",
+                    radius: 10*1000,
+                    weight:2,
+                    color:"#ff612f",
+                    latlngs: {
+                      lat: 12.931,
+                      lng: 77.621
+                    }
+                }
+      },
+      center: {
+          lat: 12.931,
+          lng: 77.621,
+          zoom: 12
+      },
+      
+      koramangala:{
+        mainMarker:{
+          lat: 12.931,
+          lng: 77.621,
+          focus:true,
+          message: "Koramangala"
+
+        }
+      } 
+    });
     $scope.user = {};
     $scope.placeholdertext = 'Sign up now.Your first job(upto Rs.300) will be on us.'
 

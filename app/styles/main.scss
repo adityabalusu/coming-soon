@@ -332,6 +332,9 @@ h1 {
 }
 
 section {
+  &.map{
+    color:black;
+  }
   color: #ffffff;
   min-height: 400px;
   height: auto !important;
@@ -356,7 +359,7 @@ section {
 }
 
 .bg-3 {
-    background: url('../images/ignore/beach_football.jpg') no-repeat center center fixed;
+    background: url('../images/ignore/chill.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
