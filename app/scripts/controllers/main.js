@@ -6,7 +6,7 @@ angular.module('geekValetLanding')
     $scope.document = $document;
     angular.extend($scope, {
       mapconfig: {
-                    tileLayer: "http://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg",
+                    //tileLayer: "http://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg",
                     zoomControl: false,
                     tileLayerOptions: {
                         opacity: 0.9,
@@ -15,6 +15,42 @@ angular.module('geekValetLanding')
                     },
                     scrollWheelZoom: false
       },
+      layers: {
+                    baselayers: {
+                        xyz: {
+                            name: 'Plain',
+                            url: 'http://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',
+                            type: 'xyz',
+
+                            
+                        }
+                    },
+                    overlays: {
+                        xyz: {
+                            name: 'Labels',
+                            type: 'xyz',
+                            url: 'http://c.tile.stamen.com/toner-labels/{z}/{x}/{y}.png',
+                            visible:true,
+                            layerParams: {
+                                layers: 'labels',
+                                format: 'image/png',
+                                transparent: true,
+
+                            }
+                        },
+                         osm: {
+                            name: 'Open street map',
+                            type: 'xyz',
+                            url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                            layerParams: {
+                                layers: 'labels',
+                                format: 'image/png',
+                                transparent: true,
+
+                            }
+                        }
+                    }
+                },
       circle:{
         shapes:{
                     type: "circle",
@@ -25,7 +61,7 @@ angular.module('geekValetLanding')
                       lat: 12.931,
                       lng: 77.621
                     }
-                }
+        }
       },
       center: {
           lat: 12.931,

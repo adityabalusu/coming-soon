@@ -196,7 +196,9 @@ header h1,header h2,header h3 a,header a,header a:hover {
   font-weight:800;
   text-decoration:none;
 }
-
+.page-header{
+  border:none;
+}
 header h3 {
   font-family: 'Kreon', serif;
   background: #ffcc33;
@@ -218,10 +220,13 @@ h1 {
 
 #nav {
   width: 100%;
-  position:static;
-  top:-52px;
+  position:relative;
+  top:-32px;
 }
-
+.angular-leaflet-map{
+  weight:100%;
+  height:600px;
+}
 #nav.ui-scrollfix {
    position: fixed;
    top: 0;
@@ -283,9 +288,15 @@ h1 {
 .navbar-toggle {
     outline:0;
 }
+.center-align{
+  margin-right:auto;
+  margin-left:auto;
+  display:block;
+  float:unset;
+}
 
 .divider {
-    height:50px;
+    height:75px;
 }
 
 .panel {

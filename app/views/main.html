@@ -31,9 +31,9 @@
       <div class="header">
     </div>
     <div class='box'>
-      <h1>COMING SOON!</h1>
+      <h1>Hello.</h1>
       <p class="lead" ng-bind-html='helpText.staticText.darkContainerText'></p>
-      <p class='tagline'><span>Sevam&eacute,</span> a one-stop solution for all your service needs, is on its way. Availing services will never be the same again.</p>
+      <p class='tagline'><span class='orange'>Sevam&eacute,</span> an on-demand solution for all your service needs, is on its way. Availing services will never be the same again.</p>
       <div class="email-container col-lg-12">
         <div class="input-group">
             <input type="email"  class="form-control" ui-keypress="{'enter':'openDialog()'}" ng-model='user.email' ng-focus='onSignUpFocus()' ng-blur='onSignUpBlur()' placeholder="{{placeholdertext}}">
@@ -56,7 +56,7 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav nav-justified">
           <li du-scrollspy="top" offset='52px'><a href='' ng-click="scrollTo('top',52)" href="">Home</a></li>
-          <li du-scrollspy="product" offset='52px'><a href=""   ng-click="scrollTo('product',52)">Sevame</a></li>
+          <li du-scrollspy="product" offset='52px'><a href=""   ng-click="scrollTo('product',52)">About</a></li>
           <li du-scrollspy="signup" offset='52px'><a href=""   ng-click="scrollTo('signup',52)">For the Early Birds</a></li>
           <li du-scrollspy="where" offset='52px'><a href=""   ng-click="scrollTo('where',52)">Where?</a></li>
           <li du-scrollspy="contact" offset='52px'><a href=""   ng-click="scrollTo('contact',52)">Contact</a></li>
@@ -65,12 +65,23 @@
     </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="divider" ></div>
+
 <div class="container" id='product'>
   <div class="col-sm-10 col-sm-offset-1">
     <div class="page-header text-center">
       <h1>Seva at your <i>fingertip.</i></h1>
-      <p>We have currently short listed a small set of services to offer. More will be rolled out soon.</p>
+      <p>We will tap into people’s available time more efficiently have currently short listed a small set of services to offer. More will be rolled out soon.</p>
+      <p>Wish we had more? You can tell us by signing up or <a href='' ng-click="scrollTo('contact')">drop us a word</a> </p>
+
+    </div>
+    <div class="">
+      <img class='center-align col-sm-2 col-md-4' alt='iphone' src='../images/ignore/iphone.png'></img>
+    </div>
+  <hr>
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="page-header text-center">
+      <h1>Current Services.</i></h1>
+      <p>At present a few short-listed services are being offered. More will be rolled out soon.</p>
       <p>Wish we had more? You can tell us by signing up or <a href='' ng-click="scrollTo('contact')">drop us a word</a> </p>
 
     </div>
@@ -149,9 +160,12 @@
     
    
   </div>
-<section class="bg-1" >
-  
-</section>
+      </div><!--/col-->
+    
+   
+  </div>
+<div class="divider" ></div>
+<section class="bg-1" ></section>
 <div class="divider" ></div>
 <div class="container bg-4" id="signup" >
      <div class="col-sm-8 col-sm-offset-2 text-center">
@@ -205,7 +219,7 @@
     </div><!--/col-->
 </div><!--/container-->
 <section class="bg-4 map" >
-  <leaflet center="center" defaults='mapconfig' paths='circle' markers='koramangala' height="600px" width="1280px"></leaflet>
+  <leaflet center="center" defaults='mapconfig' layers='layers' paths='circle' markers='koramangala' ></leaflet>
 </section>
 <div class="container" id="contact">
     <div class="col-sm-8 col-sm-offset-2 text-center" >
