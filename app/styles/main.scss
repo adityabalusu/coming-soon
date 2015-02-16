@@ -16,8 +16,7 @@ $fa-font-path: "../bower_components/fontawesome/fonts/";
 }
 /* Space out content a bit */
 body {
-    
-}
+  }
 .orange{
   color:orange;
 }
@@ -92,7 +91,7 @@ body {
         padding:0;
         
         .box{
-            padding: 48px;
+            padding: 48px 15px 48px 25px;
             position:relative;
             top:-150px;
             width:50%;
@@ -216,6 +215,7 @@ header .dropdown-menu {
 
 h1 {
   font-size:50px;
+  color:#f0ad4e;
 }
 
 #nav {
@@ -292,7 +292,7 @@ h1 {
   margin-right:auto;
   margin-left:auto;
   display:block;
-  float:unset;
+  float:none;
 }
 
 .divider {
