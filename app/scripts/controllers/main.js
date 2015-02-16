@@ -19,7 +19,7 @@ angular.module('geekValetLanding')
                     baselayers: {
                         xyz: {
                             name: 'Plain',
-                            url: 'http://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',
+                            url: 'https://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',
                             type: 'xyz',
 
                             
@@ -29,7 +29,7 @@ angular.module('geekValetLanding')
                         xyz: {
                             name: 'Labels',
                             type: 'xyz',
-                            url: 'http://c.tile.stamen.com/toner-labels/{z}/{x}/{y}.png',
+                            url: 'https://c.tile.stamen.com/toner-labels/{z}/{x}/{y}.png',
                             visible:true,
                             layerParams: {
                                 layers: 'labels',
@@ -41,7 +41,7 @@ angular.module('geekValetLanding')
                          osm: {
                             name: 'Open street map',
                             type: 'xyz',
-                            url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                            url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                             layerParams: {
                                 layers: 'labels',
                                 format: 'image/png',
