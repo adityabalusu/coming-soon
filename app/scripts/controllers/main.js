@@ -19,7 +19,7 @@ angular.module('geekValetLanding')
                     baselayers: {
                         xyz: {
                             name: 'Plain',
-                            url: 'https://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',
+                            url: 'https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg',
                             type: 'xyz',
 
                             
@@ -29,7 +29,7 @@ angular.module('geekValetLanding')
                         xyz: {
                             name: 'Labels',
                             type: 'xyz',
-                            url: 'https://c.tile.stamen.com/toner-labels/{z}/{x}/{y}.png',
+                            url: 'https://stamen-tiles.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}.png',
                             visible:true,
                             layerParams: {
                                 layers: 'labels',
