@@ -2,6 +2,8 @@
 
 angular.module('geekValetLanding')
   .controller('MainCtrl',['$scope','$anchorScroll','$location','Api','ngDialog','$document',function ($scope,$anchorScroll,$location,api,ngDialog,$document) {
+    $scope.selected = {};
+
     
     $scope.document = $document;
     angular.extend($scope, {
@@ -87,6 +89,7 @@ angular.module('geekValetLanding')
       $scope.document.duScrollToElement(element,offset,1000,TWEEN.Easing.Quadratic.Out)
 
     }
+    
 
     $scope.submit = function(){
         var postdata = {email:$scope.user.email,feedback:$scope.user.feedback}
@@ -97,6 +100,25 @@ angular.module('geekValetLanding')
     }
     $scope.onSignUpFocus=function(){
       $scope.placeholdertext='Your email id here'
+    }
+    $scope.poptastic=function(url) {
+      var newWindow = window.open(url , 'name', 'height=600,width=450');
+      if (window.focus) {
+        newWindow.focus();
+      }
+    }
+    $scope.SelectTimeSlot=function(){
+      api.getTimeSlots.then(function(data){
+        $scope.timeslots = data.available_slots
+
+      })
+
+
+      ngDialog.open({
+              template:'views/laundry.html',
+              scope:$scope,
+              className: 'ngdialog-theme-default'
+            })      
     }
     $scope.onSignUpBlur=function(){
       $scope.placeholdertext='Sign up now.Your first job(upto Rs.300) will be on us.'

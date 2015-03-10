@@ -2,8 +2,11 @@
 
 angular.module('geekValetLanding')
   .service('Api', ['Restangular',function Api(Restangular) {
-       var signUp;
+       var signUp,getTimeslots;
        return{
-           signUp: Restangular.all('signup')
+           signUp: Restangular.all('signup'),
+           getTimeSlots: Restangular.one('search/slots/service/laundry/').get()
+           
+
        }
   }]);

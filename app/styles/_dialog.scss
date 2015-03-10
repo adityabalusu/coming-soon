@@ -1,4 +1,8 @@
-.ngdialog-content{
+.ngdialog.ngdialog-theme-default {
+  text-align:center;
+  .ngdialog-content{
+    display:inline-block;
+    width:initial;
     .centered{
         text-align:center;
         h1{
@@ -16,4 +20,5 @@
     .extra-info{
         padding:10px;
     }
+  }
 }
