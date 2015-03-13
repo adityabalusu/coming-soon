@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('geekValetLanding')
-  .controller('MainCtrl',['$scope','$anchorScroll','$location','Api','ngDialog','$document',function ($scope,$anchorScroll,$location,api,ngDialog,$document) {
+  .controller('MainCtrl',['$scope','$anchorScroll','$location','Api','ngDialog','$document','Selectedtime',function ($scope,$anchorScroll,$location,api,ngDialog,$document,selectedTime) {
     $scope.selected = {};
-
-    
+    $scope.loggedin = false;
+    $scope.timeunselected = true;
+    $scope.laundrySkills=['Wash + Iron', 'Iron']
     $scope.document = $document;
     angular.extend($scope, {
       mapconfig: {
@@ -102,10 +103,32 @@ angular.module('geekValetLanding')
       $scope.placeholdertext='Your email id here'
     }
     $scope.poptastic=function(url) {
-      var newWindow = window.open(url , 'name', 'height=600,width=450');
+      var GoogleSignin = window.open(url , 'GoogleSignin', 'height=600,width=450');
       if (window.focus) {
-        newWindow.focus();
+        GoogleSignin.focus();
       }
+
+      var pollTimer   =   window.setInterval(function() { 
+                try {
+                    
+                    if (GoogleSignin.document.URL.indexOf('close') != -1) {
+                        window.clearInterval(pollTimer);
+                        var url =   GoogleSignin.document.URL;
+                        if($scope.selected.timerange==undefined){
+                          $scope.timeunselected = true;
+                        }else{
+                          $scope.timeunselected = false;
+                        }
+                        $scope.loggedin = true
+                        $scope.$apply()
+                        GoogleSignin.close();
+                        
+
+                    }
+                } catch(e) {
+                }
+       }, 100);
+
     }
     $scope.SelectTimeSlot=function(){
       api.getTimeSlots.then(function(data){
@@ -114,11 +137,14 @@ angular.module('geekValetLanding')
       })
 
 
-      ngDialog.open({
+    $scope.timeslotsDialog = ngDialog.open({
               template:'views/laundry.html',
               scope:$scope,
               className: 'ngdialog-theme-default'
-            })      
+            })    
+    }
+    $scope.selectSkill=function(){
+      selectedTime.set($scope.selected.skill)
     }
     $scope.onSignUpBlur=function(){
       $scope.placeholdertext='Sign up now.Your first job(upto Rs.300) will be on us.'
@@ -137,6 +163,26 @@ angular.module('geekValetLanding')
         }else{
           $scope.placeholdertext = 'valid email id is required'
         }
+    }
+    $scope.$watch('loggedin',function(){
+      if($scope.loggedin == true){
+         api.user.get().then(function(response){
+            $scope.user = response
+         })
+      }
+    })
+    $scope.OrderSubmit = function(){
+      $scope.user.save()
+      var schedule_start_timerange = JSON.parse($scope.selected.timerange).schedule_start_at
+      var scheduledDate = new Date(schedule_start_timerange)
+      var selectedDateJSON = scheduledDate.toJSON()
+      var args={
+        "service":"laundry",
+        "request":$scope.selected.skill,
+        "scheduled":selectedDateJSON
+
+      }
+      api.order.post(args)
     }
                 
 }]);

@@ -1,5 +1,89 @@
-<time-slots></time-slots>
-<time-ranges></time-ranges>
-<div class='centered'>
-  <button ng-click="poptastic('/api/auth/google/?user_type=service_user&next=/#/close')" class='btn btn-warning'>Select</button>
+<div>{{timeunselected}}</div>
+
+<div ng-hide='loggedin && timeunselected'>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Rate Card(per cloth)</div>
+      <table class='table'>
+         <th>
+             <td> Wash+Iron</td>
+             <td> Iron</td>
+             
+         </th>   
+         <tr>
+             <td>Regulars(Shirts,Pants,Salwars etc.)</td>
+             <td>25</td>
+             <td>7</td>
+             
+        </tr>
+        <tr>
+             <td>Large Wearables(Sarees, Suits,Pull-Overs etc.)</td>
+             <td>50</td>
+             <td>10</td>
+             
+        </tr>
+        <tr>
+             <td>Non-Wearables(BedSheets, Curtains etc.)</td>
+             <td>70</td>
+             <td>15</td>
+             
+        </tr>
+
+
+        </table>
+    </div>
+
+
+    <div class='date-picker' >
+        <h2>Choose</h2>
+        <div class='date-item' ng-repeat='skill in laundrySkills'>
+                <input ng-change='' ng-model='selected.skill' id="{{skill}}" class="date-item-input" type="radio" value="{{skill}}" name="date">
+                <label for="{{skill}}">
+                  <div class='date-item-day'>{{skill}}</div>
+                </label>
+        </div>
+    </div>
+
+    <h4 ng-show='timeunselected'>Please select a preferred time</h4>
+    <time-slots></time-slots>
+    <time-ranges></time-ranges>
+    <div class='centered'>
+      <button ng-click="poptastic('/api/auth/google/?user_type=service_user&next=http://localhost:9000/api/close')" class='btn btn-warning'>Schedule Pick-up</button>
+    </div>
+</div>
+
+<div ng-show='loggedin && !timeunselected'>
+    <h1>Order Details</h1>
+    <div class='details'>
+        <div class='p10'>
+            <div class='input-group input-group-lg'>
+                <input type="text" class="form-control" ng-model='user.name' placeholder="Name">
+            </div>
+        </div>
+        <div class='p10'>
+            <div class='input-group input-group-lg'>
+                
+                <p type="text" disabled='true' class="form-control" placeholder="Name">
+                    {{selected.timerange}}
+                </p>
+                
+            </div>
+        </div>
+        
+        <div class='p10'>
+            <div class='input-group input-group-lg'>
+                <input type="text" class="form-control" ng-model='user.phone_number' placeholder="Phone Number">
+            </div>
+        </div>
+
+        <div class='p10'>
+            <div class='input-group input-group-lg'>
+                <input type="text" class="form-control" ng-model='user.address' placeholder="Address ">
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn btn-warning" ng-click='ModifyOrder()'>Modify</button>
+    <button class="btn btn-success" ng-click='OrderSubmit()'>Done</button>
+    
 </div>

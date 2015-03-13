@@ -5,8 +5,9 @@ angular.module('geekValetLanding')
        var signUp,getTimeslots;
        return{
            signUp: Restangular.all('signup'),
-           getTimeSlots: Restangular.one('search/slots/service/laundry/').get()
-           
+           getTimeSlots: Restangular.one('search/slots/service/laundry/').get(),
+           order:Restangular.all('order/'),
+           user:Restangular.one('user')
 
        }
   }]);

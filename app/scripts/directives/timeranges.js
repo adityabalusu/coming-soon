@@ -12,6 +12,10 @@ angular.module('geekValetLanding')
             scope.ranges = JSON.parse(selectedTime.getSelectedDate()).timeslots;
 
         })
+        scope.selectRange = function(){
+          selectedTime.setSelectedRange(JSON.parse(scope.selected.timerange))
+          
+        }
 
       }
     };

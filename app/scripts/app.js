@@ -6,10 +6,14 @@ angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog','ngSaniti
     $routeProvider.when('/close', {
         templateUrl: 'views/close.html',
         controller: 'CloseCtrl',
+      }).when('/order', {
+        templateUrl: 'views/order.html',
+        controller: 'OrderCtrl',
       }).when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
       })
+      
     RestangularProvider.setBaseUrl('/api');
 
   }])  

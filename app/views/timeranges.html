@@ -3,7 +3,7 @@
   <div class='datepicker-container'>
     <div class='date-picker range-picker' >
       <div class='date-item' ng-repeat='range in ranges'>
-        <input ng-change='selectSlot()' ng-model='selected.timerange' id="date-{{range.schedule_start_at}}" class="date-item-input" type="radio" value="{{range}}" name="date">
+        <input ng-change='selectRange()' ng-model='selected.timerange' id="date-{{range.schedule_start_at}}" class="date-item-input" type="radio" value="{{range}}" name="date">
         <label for="date-{{range.schedule_start_at}}">
           <div class='date-item-day'>{{moment(range.schedule_start_at).format( 'HH mm')}}</div>
           <div class='date-item-day'>{{moment(range.schedule_end_at).format('HH mm')}}</div>
