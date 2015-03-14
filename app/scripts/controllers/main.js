@@ -178,8 +178,8 @@ angular.module('geekValetLanding')
     
     $scope.$watch('selected.timerange',function(){
       if($scope.selected.timerange){
-        var parsedslot = JSON.parse($scope.selected.timerange)
-        $scope.selectSlot = moment(parsedslot.schedule_start_at)
+        $scope.parsedslot = JSON.parse($scope.selected.timerange)
+        $scope.selectSlot = moment($scope.parsedslot.schedule_start_at)
         $scope.selectedSlotHumanized = $scope.selectSlot.format('dddd, MMM Do hh:mm a')
       }
     })

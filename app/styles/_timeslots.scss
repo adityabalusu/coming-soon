@@ -43,10 +43,26 @@
     }
   }
 }
-.datepicker-container .range-picker{
-  display:inline-flex;
-  overflow:auto;
-  width:40%;
+.datepicker-container {
+  .range-picker{
+    display:inline-flex;
+    overflow:auto;
+    width:40%;
+  }
+}
+.fixedtime-container {
+  padding:6px;
+  .fixedtime{
+    .date-item label{
+      .date-item-day,.date-item-month{
+        color:white;
+      }
+      background: none repeat scroll 0 0 #00964b;
+      color: white;
+      height: auto;
+    }
+    text-align:left;
+  }
 }
 
 

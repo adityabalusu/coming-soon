@@ -12,6 +12,7 @@ angular.module('geekValetLanding')
             scope.ranges = JSON.parse(selectedTime.getSelectedDate()).timeslots;
 
         })
+        scope.fixed = attrs.fixed? true:false;
         scope.selectRange = function(){
           selectedTime.setSelectedRange(JSON.parse(scope.selected.timerange))
           
