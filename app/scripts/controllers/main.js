@@ -147,6 +147,7 @@ angular.module('geekValetLanding')
       selectedTime.set($scope.selected.skill)
     }
     $scope.ModifyOrder=function(){
+      $scope.ordercomplete = false
       $scope.timeunselected=true
     }
     $scope.onSignUpBlur=function(){
@@ -174,18 +175,17 @@ angular.module('geekValetLanding')
          })
       }
     })
+    
     $scope.$watch('selected.timerange',function(){
       if($scope.selected.timerange){
         var parsedslot = JSON.parse($scope.selected.timerange)
         $scope.selectSlot = moment(parsedslot.schedule_start_at)
-        $scope.selectedSlotHumanized = $scope.selectSlot.format('MMM Do hh:mm a')
+        $scope.selectedSlotHumanized = $scope.selectSlot.format('dddd, MMM Do hh:mm a')
       }
     })
     $scope.OrderSubmit = function(){
       $scope.user.save()
-      var schedule_start_timerange = JSON.parse($scope.selected.timerange).schedule_start_at
-      var scheduledDate = new Date(schedule_start_timerange)
-      var selectedDateJSON = scheduledDate.toJSON()
+      var selectedDateJSON = $scope.selectSlot.format('YYYY-MM-DDTHH:mm:ss.SSS')+'Z'
       var args={
         "service":"laundry",
         "request":$scope.selected.skill,
@@ -193,7 +193,10 @@ angular.module('geekValetLanding')
         "address":$scope.user.address
 
       }
-      api.order.post(args)
+      api.order.post(args).then(function(response){
+        $scope.ordercomplete = true;
+        
+      })
     }
                 
 }]);

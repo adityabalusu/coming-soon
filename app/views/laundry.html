@@ -1,4 +1,4 @@
-<div ng-show='timeunselected'>
+<div ng-show='timeunselected && !ordercomplete'>
     <div class="panel panel-default">
       <!-- Default panel contents -->
       <div class="panel-heading">Rate Card(per cloth)</div>
@@ -46,11 +46,11 @@
     <time-slots></time-slots>
     <time-ranges></time-ranges>
     <div class='centered'>
-      <button ng-click="poptastic('/api/auth/google/?user_type=service_user&next=/api/close')" class='btn btn-warning'>Schedule Pickup</button>
+      <button ng-click="poptastic('/api/auth/google/?user_type=service_user&next=http://localhost:9000/api/close')" class='btn btn-warning'>Schedule Pickup</button>
     </div>
 </div>
 
-<div ng-show='loggedin && !timeunselected'>
+<div ng-show='loggedin && !timeunselected && !ordercomplete'>
     <h1>Order Details</h1>
     <div class='details'>
         <div class='p10'>
@@ -84,4 +84,11 @@
     <button class="btn btn-warning" ng-click='ModifyOrder()'>Modify</button>
     <button class="btn btn-success" ng-click='OrderSubmit()'>Done</button>
     
+</div>
+<div ng-show='ordercomplete'>
+    <h1>Thank you</h1>
+    <h3>We'll pick them up on {{selectedSlotHumanized}} </h3>
+    <button class="btn btn-warning" ng-click='ModifyOrder()'>Order Again</button>
+
+
 </div>
