@@ -1,6 +1,4 @@
-<div>{{timeunselected}}</div>
-
-<div ng-hide='loggedin && timeunselected'>
+<div ng-show='timeunselected'>
     <div class="panel panel-default">
       <!-- Default panel contents -->
       <div class="panel-heading">Rate Card(per cloth)</div>
@@ -64,7 +62,7 @@
             <div class='input-group input-group-lg'>
                 
                 <p type="text" disabled='true' class="form-control" placeholder="Name">
-                    {{selected.timerange}}
+                    Slot booked on {{selectedSlotHumanized}}
                 </p>
                 
             </div>

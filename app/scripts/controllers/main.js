@@ -3,8 +3,8 @@
 angular.module('geekValetLanding')
   .controller('MainCtrl',['$scope','$anchorScroll','$location','Api','ngDialog','$document','Selectedtime',function ($scope,$anchorScroll,$location,api,ngDialog,$document,selectedTime) {
     $scope.selected = {};
-    $scope.loggedin = false;
     $scope.timeunselected = true;
+    $scope.loggedin = false;
     $scope.laundrySkills=['Wash + Iron', 'Iron']
     $scope.document = $document;
     angular.extend($scope, {
@@ -146,6 +146,9 @@ angular.module('geekValetLanding')
     $scope.selectSkill=function(){
       selectedTime.set($scope.selected.skill)
     }
+    $scope.ModifyOrder=function(){
+      $scope.timeunselected=true
+    }
     $scope.onSignUpBlur=function(){
       $scope.placeholdertext='Sign up now.Your first job(upto Rs.300) will be on us.'
     }
@@ -171,6 +174,11 @@ angular.module('geekValetLanding')
          })
       }
     })
+    $scope.$watch('selected.timerange',function(){
+      var parsedslot = JSON.parse($scope.selected.timerange)
+      $scope.selectSlot = moment(parsedslot.schedule_start_at)
+      $scope.selectedSlotHumanized = $scope.selectSlot.format('MMM Do hh:mm a')
+    })
     $scope.OrderSubmit = function(){
       $scope.user.save()
       var schedule_start_timerange = JSON.parse($scope.selected.timerange).schedule_start_at
@@ -179,7 +187,8 @@ angular.module('geekValetLanding')
       var args={
         "service":"laundry",
         "request":$scope.selected.skill,
-        "scheduled":selectedDateJSON
+        "scheduled":selectedDateJSON,
+        "address":$scope.user.address
 
       }
       api.order.post(args)
