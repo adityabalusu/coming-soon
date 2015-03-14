@@ -11,7 +11,6 @@ angular.module('geekValetLanding')
             return sessionStorage.selectedDate;
         },
         setSelectedRange:function(timerange){
-            debugger
             sessionStorage.selectedrange = angular.toJson(timerange);
         },
         getSelectedRange:function(){

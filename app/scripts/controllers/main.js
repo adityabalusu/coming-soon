@@ -175,9 +175,11 @@ angular.module('geekValetLanding')
       }
     })
     $scope.$watch('selected.timerange',function(){
-      var parsedslot = JSON.parse($scope.selected.timerange)
-      $scope.selectSlot = moment(parsedslot.schedule_start_at)
-      $scope.selectedSlotHumanized = $scope.selectSlot.format('MMM Do hh:mm a')
+      if($scope.selected.timerange){
+        var parsedslot = JSON.parse($scope.selected.timerange)
+        $scope.selectSlot = moment(parsedslot.schedule_start_at)
+        $scope.selectedSlotHumanized = $scope.selectSlot.format('MMM Do hh:mm a')
+      }
     })
     $scope.OrderSubmit = function(){
       $scope.user.save()
