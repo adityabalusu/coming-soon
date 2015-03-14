@@ -1,6 +1,8 @@
-.date-picker{
+.date-picker, .range-picker{
   .date-item{
     margin:0px 4px;
+    min-width:100px;
+    max-width:100px;
     display:inline-block;
 
     .date-item-input{
