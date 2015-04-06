@@ -1,0 +1,32 @@
+<ng-include src="'views/laundry.html'" ng-show="service_type=='laundry'"> </ng-include>
+<ng-include src="'views/plumber.html'" ng-show="service_type=='plumbers'"> </ng-include>
+<ng-include src="'views/electrician.html'" ng-show="service_type=='electricians'"> </ng-include>
+
+<div ng-show='noGeoLocation'>
+    <h1>Geo Location is not supported by your browser. Please upgrade to use the full functionality of sevame</h1>    
+</div>
+<div>{{location.coords}}</div>
+<div ng-show='loggedin && !timeunselected && !ordercomplete'>
+    <h1>Order Details</h1>
+    <div class='details'>
+        <div class='p10'>
+            <div class='input-group input-group-lg'>
+                <input type="text" class="form-control" ng-model='user.name' placeholder="Name">
+            </div>
+        </div>
+        <div class='p10'>
+            <div class='input-group input-group-lg'>
+                <input type="text" class="form-control" ng-model='user.phone_number' placeholder="Phone Number">
+            </div>
+        </div>
+        <time-ranges fixed='true'></time-ranges>
+        <div class='p10'>
+            <div class='input-group input-group-lg'>
+                <textarea type="text" class="form-control" ng-model='user.address' placeholder="Address ">
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-success" ng-click='OrderSubmit()'>Done</button>
+    
+</div>

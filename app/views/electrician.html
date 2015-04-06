@@ -1,0 +1,43 @@
+<div ng-show='timeunselected && !ordercomplete'>
+    <div class='date-picker' >
+        <h2>Choose</h2>
+        <div class='date-item' ng-repeat='skill in plumberSkills'>
+                <input ng-change='' ng-model='selected.skill' id="{{skill}}" class="date-item-input" type="radio" value="{{skill}}" name="date">
+                <label for="{{skill}}">
+                  <div class='date-item-day'>{{skill}}</div>
+                </label>
+        </div>
+    </div>
+
+    <div ng-show="selected.skill =='Repair'">
+        <h2>What seems to be the problem?</h2>
+        <div class='input-group input-group-lg align-mid'>
+          <textarea type="text" class="form-control" ng-model='selected.requestText' placeholder="need to fix my sink">
+          </textarea>
+        </div>
+    </div>
+
+    <div ng-show="selected.skill =='Installation'">
+        <h2>What needs to be installed?</h2>
+        <div class='input-group input-group-lg align-mid'>
+          <textarea type="text" class="form-control" ng-model='selected.requestText' placeholder="need to fix my sink">
+          </textarea>
+        </div>
+    </div>
+
+    <time-slots></time-slots>
+    <time-ranges></time-ranges>
+    <div class='centered'>
+      <button ng-class='{disabled:!(selected.timerange && selected.skill)}' ng-click="poptastic('/api/auth/google/?user_type=service_user&next=http://localhost:9000/api/close')" class='btn btn-warning'>Schedule Appointment</button>
+    </div>
+</div>
+
+
+
+<div ng-show='ordercomplete'>
+    <h1>Thank you</h1>
+    <h3>We'll send a plumber at {{selectedSlotHumanized}} </h3>
+    <button class="btn btn-warning" ng-click='ModifyOrder()'>Order Another</button>
+
+
+</div>

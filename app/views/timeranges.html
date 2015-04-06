@@ -5,8 +5,8 @@
       <div class='date-item' ng-repeat='range in ranges' ng-show='range.available' >
         <input ng-change='selectRange()' ng-model='selected.timerange' id="date-{{range.schedule_start_at}}" class="date-item-input" type="radio" value="{{range}}" name="date">
         <label for="date-{{range.schedule_start_at}}">
-          <div class='date-item-day'>{{moment(range.schedule_start_at).format( 'HH mm')}}</div>
-          <div class='date-item-day'>{{moment(range.schedule_end_at).format('HH mm')}}</div>
+          <div class='date-item-day'>{{moment.unix(range.schedule_start_at).format( 'HH mm')}}</div>
+          <div class='date-item-day'>{{moment.unix(range.schedule_end_at).format('HH mm')}}</div>
         </label>
       </div>   
 
@@ -21,9 +21,9 @@
         <input ng-model='parsedslot' id="date-{{parsedslot.schedule_start_at}}" class="date-item-input selected" type="radio" value="{{parsedslot}}" name="date" checked >
         <label for="date-{{parsedslot.schedule_start_at}}">
 
-          <div class='date-item-month'>{{moment(parsedslot.schedule_start_at).format('MMM')}}</div>
-          <div class='date-item-num'>{{moment(parsedslot.schedule_start_at).format('DD')}}</div>
-          <div class='date-item-day'>{{moment(parsedslot.schedule_start_at).format('hh:mm a')}}</div>
+          <div class='date-item-month'>{{moment.unix(parsedslot.schedule_start_at).format('MMM')}}</div>
+          <div class='date-item-num'>{{moment.unix(parsedslot.schedule_start_at).format('DD')}}</div>
+          <div class='date-item-day'>{{moment.unix(parsedslot.schedule_start_at).format('hh:mm a')}}</div>
 
         </label>
       </div>    

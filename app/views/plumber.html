@@ -1,0 +1,30 @@
+<div ng-show='timeunselected && !ordercomplete'>
+    <div class='date-picker' >
+        <h2>Choose</h2>
+        <div class='date-item' ng-repeat='skill in plumberSkills'>
+        {{selected.skill}}
+                <input ng-change='' ng-model='selected.plumberskill' id="{{skill}}" class="date-item-input" type="radio" value="{{skill}}" name="date">
+                <label for="{{skill}}">
+                  <div class='date-item-day'>{{skill}}</div>
+                </label>
+        </div>
+    </div>
+
+    
+
+    <time-slots></time-slots>
+    <time-ranges></time-ranges>
+    <div class='centered'>
+      <button ng-class='{disabled:!(selected.timerange && selected.plumberskill)}' ng-click="poptastic('/api/auth/google/?user_type=service_user&next=http://localhost:9000/api/close')" class='btn btn-warning'>Schedule Appointment</button>
+    </div>
+</div>
+
+
+
+<div ng-show='ordercomplete'>
+    <h1>Thank you</h1>
+    <h3>We'll send a plumber at {{selectedSlotHumanized}} </h3>
+    <button class="btn btn-warning" ng-click='ModifyOrder()'>Order Another</button>
+
+
+</div>

@@ -1,11 +1,14 @@
 'use strict';
 
 angular.module('geekValetLanding')
-  .controller('MainCtrl',['$scope','$anchorScroll','$location','Api','ngDialog','$document','Selectedtime',function ($scope,$anchorScroll,$location,api,ngDialog,$document,selectedTime) {
+  .controller('MainCtrl',['$scope','$anchorScroll','$location','Api','ngDialog','$document','Selectedtime','$http',function ($scope,$anchorScroll,$location,api,ngDialog,$document,selectedTime,http) {
     $scope.selected = {};
     $scope.timeunselected = true;
+    $scope.location ={};
     $scope.loggedin = false;
-    $scope.laundrySkills=['Wash + Iron', 'Iron']
+    $scope.laundrySkills=['Wash + Iron','Wash', 'Iron']
+    $scope.plumberSkills=['Repair','Installation']
+    $scope.elecSkills=['Repair','Installation']
     $scope.document = $document;
     angular.extend($scope, {
       mapconfig: {
@@ -99,6 +102,13 @@ angular.module('geekValetLanding')
           $scope.submittedFeedback = true;
         });
     }
+    $scope.signupSpecificVert = function(vertical){
+        var postdata = {email:$scope.user.email,feedback:vertical}
+        api.signUp.post(postdata).then(function(response){
+          $scope.submitted = true;
+          $scope.submittedFeedback = true;
+        });
+    }
     $scope.onSignUpFocus=function(){
       $scope.placeholdertext='Your email id here'
     }
@@ -130,19 +140,56 @@ angular.module('geekValetLanding')
        }, 100);
 
     }
-    $scope.SelectTimeSlot=function(){
-      api.getTimeSlots.then(function(data){
+    $scope.SelectTimeSlot=function(event){
+    
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(response){
+            $scope.location= response;
+            
+            //http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+$scope.location.coords.latitude+','+$scope.location.coords.longitude).then(function(response){
+             http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=12.938073,%2077.623953').then(function(response){
+                var formatted_address = response.data.results[0].formatted_address;
+                var address_tokens = formatted_address.split(',');
+                var area_index = address_tokens.length - 4
+                $scope.region = address_tokens[area_index]
+                if($scope.region.trim()!='Koramangala'){
+                  var location ={
+                    location:[$scope.location.coords.latitude,$scope.location.coords.longitude]
+                  }
+                  api.missedorder.post(location).then(function(response){
+                    debugger;
+                  })
+                }
+                
+            })
+          });
+      } else {
+          $scope.noGeoLocation = true
+      }
+    
+
+    $scope.service_type= event.currentTarget.id
+    api.getTimeSlots.then(function(data){
         $scope.timeslots = data.available_slots
 
       })
-
-
     $scope.timeslotsDialog = ngDialog.open({
-              template:'views/laundry.html',
+              template:'views/allVerticals.html',
               scope:$scope,
               className: 'ngdialog-theme-default'
             })    
     }
+    $scope.launchingSoon=function(event){
+     $scope.submitted = false;
+     $scope.submittedFeedback = false;
+     $scope.verticalChosen = event.currentTarget.id
+     $scope.launchingSoonDialog = ngDialog.open({
+              template:'views/launching.html',
+              scope:$scope,
+              className: 'ngdialog-theme-default'
+            })    
+    }
+    
     $scope.selectSkill=function(){
       selectedTime.set($scope.selected.skill)
     }
@@ -179,24 +226,28 @@ angular.module('geekValetLanding')
     $scope.$watch('selected.timerange',function(){
       if($scope.selected.timerange){
         $scope.parsedslot = JSON.parse($scope.selected.timerange)
-        $scope.selectSlot = moment($scope.parsedslot.schedule_start_at)
+        $scope.selectSlot = moment.unix($scope.parsedslot.schedule_start_at)
         $scope.selectedSlotHumanized = $scope.selectSlot.format('dddd, MMM Do hh:mm a')
       }
     })
     $scope.OrderSubmit = function(){
-      $scope.user.save()
-      var selectedDateJSON = $scope.selectSlot.format('YYYY-MM-DDTHH:mm:ss.SSS')+'Z'
+      var selectedDateJSON = $scope.selectSlot.format('X')
       var args={
-        "service":"laundry",
+        "service":$scope.service_type,
         "request":$scope.selected.skill,
         "scheduled":selectedDateJSON,
         "address":$scope.user.address
 
       }
-      api.order.post(args).then(function(response){
+      $scope.user.save().then(function(){
+        api.order.post(args).then(function(response){
         $scope.ordercomplete = true;
         
       })
+
+      })
+     
+      
     }
                 
 }]);

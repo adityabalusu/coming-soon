@@ -28,9 +28,6 @@
 <header class="masthead">
     <div class="container" id='top'>
     <div class="row">
-      <img class='logo' src='../images/ignore/Shape.png'></img>
-    </div>
-    <div class="row">
     <div class='box'>
       <h1> Sevame</h1>
       <p class="lead" ng-bind-html='helpText.staticText.darkContainerText'></p>
@@ -88,7 +85,7 @@
 
     </div>
     <div class="row">
-      <div class="col-sm-2 col-xs-6 p0" ng-click='SelectTimeSlot()'>
+      <div class="col-sm-2 col-xs-6 p0"  id="laundry" ng-click='SelectTimeSlot($event)'>
       
         <div class="panel panel-default">
 
@@ -104,13 +101,13 @@
         </div><!--/panel--> 
 
       </div><!--/col-->
-      <div class="col-sm-2 col-xs-6 p0">
+      <div class="col-sm-2 col-xs-6 p0" id="plumbers" ng-click='SelectTimeSlot($event)'>
       
         <div class="panel panel-default">
           <div class="panel-thumbnail">
             <img src="../images/ignore/plumber.jpg" class="img-responsive">
             <div class="ribbon-wrapper-green">
-              <div class="ribbon-orange">Coming soon</div>
+              <div class="ribbon-green">Available</div>
             </div>
           </div>
           <div class="panel-body">
@@ -119,13 +116,13 @@
         </div><!--/panel--> 
       </div><!--/col-->
       
-      <div class="col-sm-2 col-xs-6 p0">
+      <div class="col-sm-2 col-xs-6 p0" id="electricians" ng-click='SelectTimeSlot($event)'>
       
         <div class="panel panel-default">
           <div class="panel-thumbnail">
             <img src="../images/ignore/electrician.jpg" class="img-responsive">
             <div class="ribbon-wrapper-green">
-              <div class="ribbon-orange">Coming soon</div>
+              <div class="ribbon-green">Available</div>
             </div>
           </div>
           <div class="panel-body">
@@ -136,7 +133,7 @@
 
       </div><!--/col-->
 
-      <div class="col-sm-2 col-xs-6 p0">
+      <div class="col-sm-2 col-xs-6 p0" id="beauticians" ng-click='launchingSoon($event)'>
       
         <div class="panel panel-default">
           <div class="panel-thumbnail">
@@ -152,7 +149,7 @@
         </div><!--/panel-->
       </div><!--/col-->
       
-      <div class="col-sm-2 col-xs-6 p0">
+      <div class="col-sm-2 col-xs-6 p0" data='cooks' id="cooks" ng-click='launchingSoon($event)'>
       
         <div class="panel panel-default">
           <div class="panel-thumbnail">
@@ -168,7 +165,7 @@
         </div><!--/panel-->
       </div><!--/col-->
       
-      <div class="col-sm-2 col-xs-6 p0">
+      <div class="col-sm-2 col-xs-6 p0" id="keymakers" ng-click='launchingSoon($event)'>
       
         <div class="panel panel-default">
           <div class="panel-thumbnail">

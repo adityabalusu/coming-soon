@@ -1,0 +1,29 @@
+<div ng-hide='submittedFeedback'>
+    <div class='centered' >
+          <h1>
+            <i class='smile fa fa-smile-o'></i>
+          </h1>
+        <p class="lead">
+            We are not yet ready to take orders for {{verticalChosen}}
+        </p>
+    </div>
+    <div class='row'>
+      <div class="input-group">
+            <input type="email"  class="form-control" ui-keypress="{'enter':'openDialog()'}" ng-model='user.email' ng-focus='onSignUpFocus()' ng-blur='onSignUpBlur()' placeholder="email address...">
+            <span class="input-group-btn">
+              <button class="btn btn-warning" ng-click='signupSpecificVert(verticalChosen)' type="button">Tell me when you launch</button>
+            </span>
+      </div>
+    </div>
+    
+    
+      
+</div>
+
+
+<div class='centered' ng-show='submittedFeedback'>
+    <h1>
+        <i class='tick fa fa-check-circle'></i>
+    </h1>
+    <p class="lead" ng-bind-html='helpText.staticText.signedUpmsg'></p>
+</div>

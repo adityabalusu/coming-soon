@@ -4,24 +4,28 @@
       <div class="panel-heading">PRICE PER CLOTH</div>
       <table class='table'>
          <th>
+             <td> Wash</td>
              <td> Wash+Iron</td>
              <td> Iron</td>
              
          </th>   
          <tr>
              <td><strong>Regulars</strong> (Shirts,Pants,Salwars etc.)</td>
+             <td>18</td>
              <td>25</td>
              <td>7</td>
              
         </tr>
         <tr>
              <td><strong>Large Wearables</strong> (Sarees, Suits,Pull-Overs etc.)</td>
+             <td>40</td>
              <td>50</td>
              <td>10</td>
              
         </tr>
         <tr>
              <td><strong>Non-Wearables</strong> (BedSheets, Curtains etc.)</td>
+             <td>55</td>
              <td>70</td>
              <td>15</td>
              
@@ -45,33 +49,11 @@
     <time-slots></time-slots>
     <time-ranges></time-ranges>
     <div class='centered'>
-      <button ng-click="poptastic('/api/auth/google/?user_type=service_user&next=/api/close')" class='btn btn-warning'>Schedule Pickup</button>
+      <button ng-class='{disabled:!(selected.timerange && selected.skill)}' ng-click="poptastic('/api/auth/google/?user_type=service_user&next=http://localhost:9000/api/close')" class='btn btn-warning'>Schedule Pickup</button>
     </div>
 </div>
 
-<div ng-show='loggedin && !timeunselected && !ordercomplete'>
-    <h1>Order Details</h1>
-    <div class='details'>
-        <div class='p10'>
-            <div class='input-group input-group-lg'>
-                <input type="text" class="form-control" ng-model='user.name' placeholder="Name">
-            </div>
-        </div>
-        <div class='p10'>
-            <div class='input-group input-group-lg'>
-                <input type="text" class="form-control" ng-model='user.phone_number' placeholder="Phone Number">
-            </div>
-        </div>
-        <time-ranges fixed='true'></time-ranges>
-        <div class='p10'>
-            <div class='input-group input-group-lg'>
-                <input type="text" class="form-control" ng-model='user.address' placeholder="Address ">
-            </div>
-        </div>
-    </div>
-    <button class="btn btn-success" ng-click='OrderSubmit()'>Done</button>
-    
-</div>
+
 <div ng-show='ordercomplete'>
     <h1>Thank you</h1>
     <h3>We'll pick them up on {{selectedSlotHumanized}} </h3>

@@ -9,9 +9,9 @@
       <div class='date-item' ng-repeat='timeslot in timeslots'>
         <input ng-change='selectSlot()' ng-model='selected.date' id="date-{{timeslot.date}}" class="date-item-input" type="radio" value="{{timeslot}}" name="date">
         <label for="date-{{timeslot.date}}">
-          <div class='date-item-month'>{{moment(timeslot.date).format('MMM')}}</div>
-          <div class='date-item-num'>{{moment(timeslot.date).format('DD')}}</div>
-          <div class='date-item-day'>{{moment(timeslot.date).format('ddd')}}</div>
+          <div class='date-item-month'>{{moment.unix(timeslot.date).format('MMM')}}</div>
+          <div class='date-item-num'>{{moment.unix(timeslot.date).format('DD')}}</div>
+          <div class='date-item-day'>{{moment.unix(timeslot.date).format('ddd')}}</div>
         </label>
       </div>    
     </div>

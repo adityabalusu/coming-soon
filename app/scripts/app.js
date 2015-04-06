@@ -3,10 +3,7 @@
 angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog','ngSanitize','ui.scrollfix','ui.keypress','duScroll','leaflet-directive'])
   .value('duScrollGreedy', true)
   .config(['$routeProvider','RestangularProvider',function($routeProvider,RestangularProvider){
-    $routeProvider.when('/close', {
-        templateUrl: 'views/close.html',
-        controller: 'CloseCtrl',
-      }).when('/order', {
+    $routeProvider.when('/order', {
         templateUrl: 'views/order.html',
         controller: 'OrderCtrl',
       }).when('/', {
