@@ -4,6 +4,9 @@ angular.module('geekValetLanding')
   .controller('MainCtrl',['$scope','$anchorScroll','$location','Api','ngDialog','$document','Selectedtime','$http',function ($scope,$anchorScroll,$location,api,ngDialog,$document,selectedTime,http) {
     $scope.selected = {};
     $scope.timeunselected = true;
+    $scope.location_permitted =false;
+    $scope.location_denied =false;
+    $scope.currentlyserving = false;
     $scope.location ={};
     $scope.loggedin = false;
     $scope.laundrySkills=['Wash + Iron','Wash', 'Iron']
@@ -140,26 +143,40 @@ angular.module('geekValetLanding')
        }, 100);
 
     }
+    $scope.locationDenied =function(){
+      $scope.location_denied = true;
+    }
     $scope.SelectTimeSlot=function(event){
     
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(response){
+            var args;
             $scope.location= response;
             
-            //http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+$scope.location.coords.latitude+','+$scope.location.coords.longitude).then(function(response){
-             http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=12.938073,%2077.623953').then(function(response){
+            http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+$scope.location.coords.latitude+','+$scope.location.coords.longitude).then(function(response){
+            //http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=12.938073,77.623953').then(function(response){
+                $scope.location_permitted =true;
                 var formatted_address = response.data.results[0].formatted_address;
                 var address_tokens = formatted_address.split(',');
                 var area_index = address_tokens.length - 4
                 $scope.region = address_tokens[area_index]
-                if($scope.region.trim()!='Koramangala'){
-                  var location ={
-                    location:[$scope.location.coords.latitude,$scope.location.coords.longitude]
+                var activeareas=['Koramangala','Neelasandra','Adugodi','HSR Layout','Ejipura','Viveka Nagar']
+                $scope.currentlyNotServing = activeareas.indexOf($scope.region.trim())==-1
+                if($scope.currentlyNotserving){
+                  var args ={
+                    location:[$scope.location.coords.latitude,$scope.location.coords.longitude],
+                    service_available:false
                   }
-                  api.missedorder.post(location).then(function(response){
-                    debugger;
-                  })
+                }else{
+                  var args ={
+                    location:[$scope.location.coords.latitude,$scope.location.coords.longitude],
+                    service_available:true
+                  }
                 }
+                api.missedorder.post(args).then(function(response){
+                
+                })
+                
                 
             })
           });
@@ -231,13 +248,26 @@ angular.module('geekValetLanding')
       }
     })
     $scope.OrderSubmit = function(){
+      var args;
       var selectedDateJSON = $scope.selectSlot.format('X')
-      var args={
+      if($scope.location){
+        args={
         "service":$scope.service_type,
         "request":$scope.selected.skill,
+        "location":[$scope.location.coords.latitude,$scope.location.coords.longitude],
         "scheduled":selectedDateJSON,
         "address":$scope.user.address
 
+        }
+      }else{
+        args={
+          "service":$scope.service_type,
+          "request":$scope.selected.skill,
+          "location_permitted":false,
+          "scheduled":selectedDateJSON,
+          "address":$scope.user.address
+
+        }
       }
       $scope.user.save().then(function(){
         api.order.post(args).then(function(response){

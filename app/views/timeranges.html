@@ -5,8 +5,9 @@
       <div class='date-item' ng-repeat='range in ranges' ng-show='range.available' >
         <input ng-change='selectRange()' ng-model='selected.timerange' id="date-{{range.schedule_start_at}}" class="date-item-input" type="radio" value="{{range}}" name="date">
         <label for="date-{{range.schedule_start_at}}">
-          <div class='date-item-day'>{{moment.unix(range.schedule_start_at).format( 'HH mm')}}</div>
-          <div class='date-item-day'>{{moment.unix(range.schedule_end_at).format('HH mm')}}</div>
+          <div class='date-item-day'>{{moment.unix(range.schedule_start_at).format( 'HH:mm')}}</div>
+          <div class='date-to'>to</div>
+          <div class='date-item-day'>{{moment.unix(range.schedule_end_at).format('HH:mm')}}</div>
         </label>
       </div>   
 
