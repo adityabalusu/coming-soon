@@ -162,7 +162,7 @@ angular.module('geekValetLanding')
                 $scope.region = address_tokens[area_index]
                 var activeareas=['Koramangala','Neelasandra','Adugodi','HSR Layout','Ejipura','Viveka Nagar']
                 $scope.currentlyNotServing = activeareas.indexOf($scope.region.trim())==-1
-                if($scope.currentlyNotserving){
+                if($scope.currentlyNotServing){
                   var args ={
                     location:[$scope.location.coords.latitude,$scope.location.coords.longitude],
                     service_available:false

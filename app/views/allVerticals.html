@@ -1,8 +1,8 @@
 <div ng-hide='location_permitted'>
-    <h2>We currently serve in and around Koramangala, Bangalore. We can serve you better if you give access to your location </h2>
-    <button class="btn btn-success" ng-click='locationDenied()'>No, thanks</button>
-<div>
-<div ng-show='location_permitted && !currentlyNotserving'>
+    <h2>Please give us your location to help us serve you better. </h2>
+    <button class="btn btn-success" ng-click='locationDenied()'>Proceed anyway.</button>
+</div>
+<div ng-show='location_permitted && !currentlyNotServing'>
     <ng-include src="'views/laundry.html'" ng-show="service_type=='laundry'"> </ng-include>
     <ng-include src="'views/plumber.html'" ng-show="service_type=='plumbers'"> </ng-include>
     <ng-include src="'views/electrician.html'" ng-show="service_type=='electricians'"> </ng-include>
@@ -32,10 +32,10 @@
     </div>
 </div>
 <div ng-show='location_denied'>
-    <h2>{{currentlyserving}}</h2>
+    <h2>{{currentlyNotServing}}</h2>
     <h2>{{location_denied}}</h2>
 </div>
-<div ng-show='location_permitted || currentlyNotserving'>
-    <h2>{{currentlyserving}}</h2>
-    <h2>{{location_denied}}</h2>
+<div ng-show='location_permitted && currentlyNotServing'>
+    <h2>Looks like you are in {{region}}</h2>
+    <h2>{{location_permitted}}</h2>
 </div>

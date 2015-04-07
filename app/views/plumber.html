@@ -2,11 +2,20 @@
     <div class='date-picker' >
         <h2>Choose</h2>
         <div class='date-item' ng-repeat='skill in plumberSkills'>
-        {{selected.skill}}
-                <input ng-change='' ng-model='selected.plumberskill' id="{{skill}}" class="date-item-input" type="radio" value="{{skill}}" name="date">
-                <label for="{{skill}}">
+             <input ng-change='' ng-model='selected.plumberskill' id="plumber-{{skill}}" class="date-item-input" type="radio" value="{{skill}}" name="date">
+                <label for="plumber-{{skill}}">
                   <div class='date-item-day'>{{skill}}</div>
                 </label>
+        </div>
+
+        <div class='input-group align-center-55 input-group-lg' ng-show="selected.plumberskill=='Repair'">
+            <h2>What seems to be the problem?</h2>
+            <textarea type="text" class="form-control" placeholder="Sink is clogged"></textarea>
+        </div>
+
+        <div class='input-group align-center-55 input-group-lg' ng-show="selected.plumberskill=='Installation'">
+            <h2>What needs to be installed?</h2>
+            <textarea type="text" class="form-control" placeholder="New sink needs to be installed"></textarea>
         </div>
     </div>
 
