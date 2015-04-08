@@ -3,6 +3,7 @@
 angular.module('geekValetLanding')
   .controller('MainCtrl',['$scope','$anchorScroll','$location','Api','ngDialog','$document','Selectedtime','$http',function ($scope,$anchorScroll,$location,api,ngDialog,$document,selectedTime,http) {
     $scope.selected = {};
+    $scope.activeareas=['Koramangala','Neelasandra','Adugodi','HSR Layout','Ejipura','Viveka Nagar']
     $scope.timeunselected = true;
     $scope.location_permitted =false;
     $scope.location_denied =false;
@@ -160,8 +161,7 @@ angular.module('geekValetLanding')
                 var address_tokens = formatted_address.split(',');
                 var area_index = address_tokens.length - 4
                 $scope.region = address_tokens[area_index]
-                var activeareas=['Koramangala','Neelasandra','Adugodi','HSR Layout','Ejipura','Viveka Nagar']
-                $scope.currentlyNotServing = activeareas.indexOf($scope.region.trim())==-1
+                $scope.currentlyNotServing = $scope.activeareas.indexOf($scope.region.trim())==-1
                 if($scope.currentlyNotServing){
                   var args ={
                     location:[$scope.location.coords.latitude,$scope.location.coords.longitude],
@@ -247,6 +247,9 @@ angular.module('geekValetLanding')
         $scope.selectedSlotHumanized = $scope.selectSlot.format('dddd, MMM Do hh:mm a')
       }
     })
+    $scope.selectServingArea = function(area){
+        $scope.selected.area = area;
+    }
     $scope.OrderSubmit = function(){
       var args;
       var selectedDateJSON = $scope.selectSlot.format('X')

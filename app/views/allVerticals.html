@@ -2,7 +2,7 @@
     <h2>Please give us your location to help us serve you better. </h2>
     <button class="btn btn-success" ng-click='locationDenied()'>Proceed anyway.</button>
 </div>
-<div ng-show='location_permitted && !currentlyNotServing'>
+<div ng-show='location_permitted && !currentlyNotServing || selected.area'>
     <ng-include src="'views/laundry.html'" ng-show="service_type=='laundry'"> </ng-include>
     <ng-include src="'views/plumber.html'" ng-show="service_type=='plumbers'"> </ng-include>
     <ng-include src="'views/electrician.html'" ng-show="service_type=='electricians'"> </ng-include>
@@ -32,10 +32,44 @@
     </div>
 </div>
 <div ng-show='location_denied'>
-    <h2>{{currentlyNotServing}}</h2>
-    <h2>{{location_denied}}</h2>
+    <h2> Hey, we operate only in the below areas</h2>
+    <h4> Please select to Book a Seva </h4>
+    <div class='align-dropdown-center'>
+        <div class="dropdown">
+          <button ng-hide="selected.area" class="btn btn-default dropdown-toggle" type="button" id="available_areas" data-toggle="dropdown" aria-expanded="true">
+            Available areas
+            <span class="caret"></span>
+          </button>
+          <button ng-show="selected.area" class="btn btn-default dropdown-toggle" type="button" id="available_areas" data-toggle="dropdown" aria-expanded="true">
+            {{selected.area}}
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="available_areas">
+            <li role="presentation" ng-repeat='area in activeareas'>
+                <a role="menuitem" ng-click='selectServingArea(area)' tabindex="-1">{{area}}</a>
+            </li>
+            
+          </ul>
+        </div>
+    </div>
 </div>
-<div ng-show='location_permitted && currentlyNotServing'>
-    <h2>Looks like you are in {{region}}</h2>
-    <h2>{{location_permitted}}</h2>
+<div ng-show='location_permitted && currentlyNotServing && !selected.area'>
+    <h2> Hey, we’ll be coming to {{region}} soon.</h2>
+    <h4> However, you can still Book a Seva for below areas</h4>
+    <div class='align-dropdown-center'>
+        <div class="dropdown">
+          <button ng-hide="selected.area" class="btn btn-default dropdown-toggle" type="button" id="available_areas" data-toggle="dropdown" aria-expanded="true">
+            Available areas
+            <span class="caret"></span>
+          </button>
+          <button ng-show="selected.area" class="btn btn-default dropdown-toggle" type="button" id="available_areas" data-toggle="dropdown" aria-expanded="true">
+            {{selected.area}}
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="available_areas">
+            <li role="presentation" ng-repeat='area in activeareas'>
+                <a role="menuitem" ng-click='selectServingArea(area)' tabindex="-1">{{area}}</a>
+            </li>
+            
+          </ul>
+        </div>
+    </div>
 </div>
