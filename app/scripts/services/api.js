@@ -5,7 +5,7 @@ angular.module('geekValetLanding')
        var signUp,getTimeslots;
        return{
            signUp: Restangular.all('signup'),
-           getTimeSlots: Restangular.one('search/slots/service/laundry/').get(),
+           getTimeSlots: Restangular.all('search/slots/service/'),
            order:Restangular.all('order/'),
            user:Restangular.one('user'),
            missedorder:Restangular.all('missedorder')

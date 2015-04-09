@@ -186,7 +186,7 @@ angular.module('geekValetLanding')
     
 
     $scope.service_type= event.currentTarget.id
-    api.getTimeSlots.then(function(data){
+    api.getTimeSlots.one($scope.service_type).get().then(function(data){
         $scope.timeslots = data.available_slots
 
       })
