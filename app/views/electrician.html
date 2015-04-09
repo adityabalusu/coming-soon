@@ -2,20 +2,10 @@
     <div class='date-picker' >
         <h2>Choose</h2>
         <div class='date-item' ng-repeat='skill in elecSkills'>
-             <input ng-change='' ng-model='selected.elecSkill' id="elec-{{skill}}" class="date-item-input" type="radio" value="{{skill}}" name="date">
+             <input ng-change='' ng-model='selected.skill' id="elec-{{skill}}" class="date-item-input" type="radio" value="{{skill}}" name="date">
                 <label for="elec-{{skill}}">
                   <div class='date-item-day'>{{skill}}</div>
                 </label>
-        </div>
-
-        <div class='input-group align-center-55 input-group-lg' ng-show="selected.elecSkill=='Repair'">
-            <h2>What seems to be the problem?</h2>
-            <textarea type="text" class="form-control" placeholder="Sink is clogged"></textarea>
-        </div>
-
-        <div class='input-group align-center-55 input-group-lg' ng-show="selected.elecSkill=='Installation'">
-            <h2>What needs to be installed?</h2>
-            <textarea type="text" class="form-control" placeholder="New sink needs to be installed"></textarea>
         </div>
     </div>
 
@@ -38,7 +28,7 @@
     <time-slots></time-slots>
     <time-ranges></time-ranges>
     <div class='centered'>
-      <button ng-class='{disabled:!(selected.timerange && selected.elecSkill)}' ng-click="poptastic('/api/auth/google/?user_type=service_user&next=/api/close')" class='btn btn-warning'>Schedule Appointment</button>
+      <button ng-class='{disabled:!(selected.timerange && selected.skill)}' ng-click="poptastic('/api/auth/google/?user_type=service_user&next=/api/close')" class='btn btn-warning'>Schedule Appointment</button>
     </div>
 </div>
 

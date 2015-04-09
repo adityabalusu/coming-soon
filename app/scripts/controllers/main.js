@@ -253,7 +253,7 @@ angular.module('geekValetLanding')
     $scope.OrderSubmit = function(){
       var args;
       var selectedDateJSON = $scope.selectSlot.format('X')
-      if($scope.location){
+      if($scope.location.coords){
         args={
         "service":$scope.service_type,
         "request":$scope.selected.skill,
