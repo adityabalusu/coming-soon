@@ -8,6 +8,7 @@ angular.module('geekValetLanding')
            getTimeSlots: Restangular.all('search/slots/service/'),
            order:Restangular.all('order/'),
            user:Restangular.one('user'),
-           missedorder:Restangular.all('missedorder')
+           missedorder:Restangular.all('missedorder'),
+           allServiceProviders:Restangular.all('admin/serviceprovider')
          }
   }]);

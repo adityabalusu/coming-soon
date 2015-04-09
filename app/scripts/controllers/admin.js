@@ -1,10 +1,12 @@
 'use strict';
 
-angular.module('geekValetLandingApp')
-  .controller('AdminCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module('geekValetLanding')
+  .controller('AdminCtrl',['$scope','Api', function ($scope,api) {
+    api.allServiceProviders.getList().then(function(service_providers){
+        $scope.allServiceProviders = service_providers
+    })
+    $scope.addServiceProvider = function(){
+      var service_provider ={"user":{"phone_number":"","email":""}} 
+      $scope.allServiceProviders.unshift(service_provider)
+    }
+  }]);

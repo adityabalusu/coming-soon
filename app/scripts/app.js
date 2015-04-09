@@ -13,6 +13,19 @@ angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog','ngSaniti
       
     RestangularProvider.setBaseUrl('/api');
 
+    RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
+      var extractedData;
+      // .. to look for getList operations
+      if (operation === "getList") {
+        // .. and handle the data and meta data
+        extractedData = data.objects;
+        extractedData.meta = data.meta;
+      } else {
+        extractedData = data.objects;
+      }
+      return extractedData;
+    });
+
   }])  
 
   .run(['$rootScope','helpText','$anchorScroll',function(rootScope,helpText,$anchorScroll){

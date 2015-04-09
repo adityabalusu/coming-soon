@@ -1,1 +1,9 @@
-<p>This is the admin view.</p>
+<button ng-click='addServiceProvider()'>Add</button>
+<div ng-repeat=' service_provider in allServiceProviders'>
+    <br>
+    <input ng-model="service_provider.cost"></input>
+    <input ng-model="service_provider.user.email"></input>
+    <input ng-model="service_provider.user.phone_number"></input>
+    <button ng-click='service_provider.put()'>Update</button>
+    <br>
+</div>
