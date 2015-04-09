@@ -258,6 +258,7 @@ angular.module('geekValetLanding')
         "service":$scope.service_type,
         "request":$scope.selected.skill,
         "location":[$scope.location.coords.latitude,$scope.location.coords.longitude],
+        "location_permitted":true,
         "scheduled":selectedDateJSON,
         "address":$scope.user.address
 

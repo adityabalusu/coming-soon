@@ -4,8 +4,8 @@
 </div>
 <div ng-show='location_permitted && !currentlyNotServing || selected.area'>
     <ng-include src="'views/laundry.html'" ng-show="service_type=='laundry'"> </ng-include>
-    <ng-include src="'views/plumber.html'" ng-show="service_type=='plumbers'"> </ng-include>
-    <ng-include src="'views/electrician.html'" ng-show="service_type=='electricians'"> </ng-include>
+    <ng-include src="'views/plumber.html'" ng-show="service_type=='plumber'"> </ng-include>
+    <ng-include src="'views/electrician.html'" ng-show="service_type=='electrician'"> </ng-include>
     <div ng-show='loggedin && !timeunselected && !ordercomplete'>
         <h1>Order Details</h1>
         <div class='details'>
@@ -31,7 +31,7 @@
         
     </div>
 </div>
-<div ng-show='location_denied'>
+<div ng-show='location_denied && !selected.area'>
     <h2> Hey, we operate only in the below areas</h2>
     <h4> Please select to Book a Seva </h4>
     <div class='align-dropdown-center'>
