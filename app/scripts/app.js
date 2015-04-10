@@ -21,7 +21,7 @@ angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog','ngSaniti
         extractedData = data.objects;
         extractedData.meta = data.meta;
       } else {
-        extractedData = data.objects;
+        extractedData = data;
       }
       return extractedData;
     });
