@@ -1,9 +1,15 @@
 'use strict';
 
-angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog','ngSanitize','ui.scrollfix','ui.keypress','duScroll','leaflet-directive'])
+angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog','ngSanitize','ui.scrollfix','ui.keypress','duScroll','leaflet-directive','cgBusy'])
   .value('duScrollGreedy', true)
   .config(['$routeProvider','RestangularProvider',function($routeProvider,RestangularProvider){
-    $routeProvider.when('/admin', {
+    $routeProvider.when('/admin/orders', {
+        templateUrl: 'views/order.html',
+        controller: 'OrderCtrl',
+      }).when('/admin/orders/:orderid/details', {
+        templateUrl: 'views/orderdetails.html',
+        controller: 'OrderdetailsCtrl',
+      }).when('/admin', {
         templateUrl: 'views/admin.html',
         controller: 'AdminCtrl',
       }).when('/', {

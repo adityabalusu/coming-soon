@@ -1,8 +1,9 @@
 <div ng-hide='location_permitted || location_denied'>
-    <h2>Please give us your location to help us serve you better. </h2>
+    <h2>Please give us your location to help us serve you better.</h2>
+    <div style="padding:30px;" cg-busy="{promise:fetchLocation.promise,message:'trying to fetch location...',templateUrl:'views/loading.html',backdrop:false}"></div>
     <button class="btn btn-success" ng-click='locationDenied()'>Proceed anyway.</button>
 </div>
-<div ng-show='location_permitted && !currentlyNotServing || selected.area'>
+<div ng-show='location_permitted && !currentlyNotServing || selected.area' >
     <ng-include src="'views/laundry.html'" ng-show="service_type=='laundry'"> </ng-include>
     <ng-include src="'views/plumber.html'" ng-show="service_type=='plumber'"> </ng-include>
     <ng-include src="'views/electrician.html'" ng-show="service_type=='electrician'"> </ng-include>

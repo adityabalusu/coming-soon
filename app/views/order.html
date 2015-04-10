@@ -1,3 +1,10 @@
-<p>This is the order view.</p>
-<p>{{skill}}</p>
-<p>{{selectedrange}}</p>
+<button ng-click='addOrder()'>Add</button>
+<div ng-repeat="order in orders">
+    <br>
+    <input ng-model="order.id"></input>
+    <input ng-model="order.address"></input>
+    <input ng-model="order.status"></input>
+    <button class="btn btn-primary" ng-click='openAssignmentDialog(order)' >Assign</button>
+    <a class="btn btn-warning" href="/#/admin/orders/{{order.id}}/details">Details</a>
+    <br>
+</div>

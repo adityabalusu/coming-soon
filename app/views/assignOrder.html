@@ -1,0 +1,13 @@
+<div class="centered" ng-hide='orderAssigned'>
+    <div class="row">
+        <h4>
+            <input placeholder='Enter phone number of SP' ng-model='assigned.phone_number'> </input>
+        </h4>
+    </div>
+    <button class="btn btn-warning" ng-click="assignOrder()">Done</button>
+</div>
+<div class="centered" ng-show='orderAssigned'>
+    <h1>
+        <i class='tick fa fa-check-circle'></i>
+    </h1>
+</div>

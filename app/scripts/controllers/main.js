@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('geekValetLanding')
-  .controller('MainCtrl',['$scope','$anchorScroll','$location','Api','ngDialog','$document','Selectedtime','$http',function ($scope,$anchorScroll,$location,api,ngDialog,$document,selectedTime,http) {
+  .controller('MainCtrl',['$scope','$q','$anchorScroll','$location','Api','ngDialog','$document','Selectedtime','$http',function ($scope,$q,$anchorScroll,$location,api,ngDialog,$document,selectedTime,http) {
     $scope.selected = {};
     $scope.activeareas=['Koramangala','Neelasandra','Adugodi','HSR Layout','Ejipura','Viveka Nagar']
     $scope.timeunselected = true;
@@ -150,13 +150,14 @@ angular.module('geekValetLanding')
     $scope.SelectTimeSlot=function(event){
     
       if (navigator.geolocation) {
+          $scope.fetchLocation = $q.defer();
           navigator.geolocation.getCurrentPosition(function(response){
             var args;
             $scope.location= response;
-            
             http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+$scope.location.coords.latitude+','+$scope.location.coords.longitude).then(function(response){
             //http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=12.938073,77.623953').then(function(response){
-                $scope.location_permitted =true;
+                $scope.fetchLocation.resolve();
+                $scope.location_permitted =true; 
                 var formatted_address = response.data.results[0].formatted_address;
                 var address_tokens = formatted_address.split(',');
                 var area_index = address_tokens.length - 4
