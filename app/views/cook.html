@@ -80,7 +80,7 @@
     <time-slots></time-slots>
     <time-ranges></time-ranges>
     <div class='centered'>
-      <button ng-class='{disabled:!(selected.timerange && selected.skill)}' ng-click="poptastic('/api/auth/google/?user_type=service_user&next=/api/close')" class='btn btn-warning'>Schedule Pickup</button>
+      <button ng-class='{disabled:!(selected.timerange && selected.skill && selected.number && $scope.selectedDetails)}' ng-click="poptastic('/api/auth/google/?user_type=service_user&next=/api/close')" class='btn btn-warning'>Schedule Pickup</button>
     </div>
 </div>
 
