@@ -1,4 +1,9 @@
 <div ng-show='timeunselected && !ordercomplete'>
+    <div class='centered'>
+      <h4> Minimum charges are Rs.200/- for minor checks and repairs. You will receive a detailed quote with material charges after inspection
+      </h4>
+    </div> 
+
     <div class='date-picker' >
         <h2>Choose</h2>
         <div class='date-item' ng-repeat='skill in plumberSkills'>
@@ -19,12 +24,11 @@
         </div>
     </div>
 
-    
-
     <time-slots></time-slots>
     <time-ranges></time-ranges>
+
     <div class='centered'>
-      <button ng-class='{disabled:!(selected.timerange && selected.skill)}' ng-click="poptastic('/api/auth/google/?user_type=service_user&next=/api/close')" class='btn btn-warning'>Schedule Appointment</button>
+      <button ng-class='{disabled:!(selected.timerange && selected.skill && selected.requestText)}' ng-click="poptastic('/api/auth/google/?user_type=service_user&next=/api/close')" class='btn btn-warning'>Schedule Appointment</button>
     </div>
 </div>
 
@@ -32,7 +36,7 @@
 
 <div ng-show='ordercomplete'>
     <h1>Thank you</h1>
-    <h3>We'll send a plumber at {{selectedSlotHumanized}} </h3>
+    <h3>We'll send a plumber between {{selectedSlotStartHumanized}} & {{selectedSlotEndHumanized}} </h3>
     <button class="btn btn-warning" ng-click='ModifyOrder()'>Order Another</button>
 
 

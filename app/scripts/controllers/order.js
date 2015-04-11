@@ -3,7 +3,7 @@
 angular.module('geekValetLanding')
   .controller('OrderCtrl',['$scope','Api','ngDialog', function ($scope,api,ngDialog) {
     
-
+    $scope.moment = moment;
     api.allOrders.getList().then(function(orders){
         $scope.orders = orders
     })

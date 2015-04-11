@@ -148,41 +148,42 @@ angular.module('geekValetLanding')
       $scope.location_denied = true;
     }
     $scope.SelectTimeSlot=function(event){
-    
-      if (navigator.geolocation) {
-          $scope.fetchLocation = $q.defer();
-          navigator.geolocation.getCurrentPosition(function(response){
-            var args;
-            $scope.location= response;
-            http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+$scope.location.coords.latitude+','+$scope.location.coords.longitude).then(function(response){
-            //http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=12.938073,77.623953').then(function(response){
-                $scope.fetchLocation.resolve();
-                $scope.location_permitted =true; 
-                var formatted_address = response.data.results[0].formatted_address;
-                var address_tokens = formatted_address.split(',');
-                var area_index = address_tokens.length - 4
-                $scope.region = address_tokens[area_index]
-                $scope.currentlyNotServing = $scope.activeareas.indexOf($scope.region.trim())==-1
-                if($scope.currentlyNotServing){
-                  var args ={
-                    location:[$scope.location.coords.latitude,$scope.location.coords.longitude],
-                    service_available:false
+      if($.isEmptyObject($scope.location)){
+        if (navigator.geolocation) {
+            $scope.fetchLocation = $q.defer();
+            navigator.geolocation.getCurrentPosition(function(response){
+              var args;
+              $scope.location= response;
+              http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+$scope.location.coords.latitude+','+$scope.location.coords.longitude).then(function(response){
+              //http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=12.938073,77.623953').then(function(response){
+                  $scope.fetchLocation.resolve();
+                  $scope.location_permitted =true; 
+                  var formatted_address = response.data.results[0].formatted_address;
+                  var address_tokens = formatted_address.split(',');
+                  var area_index = address_tokens.length - 4
+                  $scope.region = address_tokens[area_index]
+                  $scope.currentlyNotServing = $scope.activeareas.indexOf($scope.region.trim())==-1
+                  if($scope.currentlyNotServing){
+                    var args ={
+                      location:[$scope.location.coords.latitude,$scope.location.coords.longitude],
+                      service_available:false
+                    }
+                  }else{
+                    var args ={
+                      location:[$scope.location.coords.latitude,$scope.location.coords.longitude],
+                      service_available:true
+                    }
                   }
-                }else{
-                  var args ={
-                    location:[$scope.location.coords.latitude,$scope.location.coords.longitude],
-                    service_available:true
-                  }
-                }
-                api.missedorder.post(args).then(function(response){
-                
-                })
-                
-                
-            })
-          });
-      } else {
-          $scope.noGeoLocation = true
+                  api.missedorder.post(args).then(function(response){
+                  
+                  })
+                  
+                  
+              })
+            });
+        } else {
+            $scope.noGeoLocation = true
+        }
       }
     
 
@@ -244,8 +245,10 @@ angular.module('geekValetLanding')
     $scope.$watch('selected.timerange',function(){
       if($scope.selected.timerange){
         $scope.parsedslot = JSON.parse($scope.selected.timerange)
-        $scope.selectSlot = moment.unix($scope.parsedslot.schedule_start_at)
-        $scope.selectedSlotHumanized = $scope.selectSlot.format('dddd, MMM Do hh:mm a')
+        $scope.selectSlotStart = moment.unix($scope.parsedslot.schedule_start_at)
+        $scope.selectSlotEnd = moment.unix($scope.parsedslot.schedule_end_at)
+        $scope.selectedSlotStartHumanized = $scope.selectSlotStart.format('dddd, MMM Do hh:mm a')
+        $scope.selectedSlotEndHumanized = $scope.selectSlotEnd.format('hh:mm a')
       }
     })
     $scope.selectServingArea = function(area){
@@ -253,7 +256,7 @@ angular.module('geekValetLanding')
     }
     $scope.OrderSubmit = function(){
       var args;
-      var selectedDateJSON = $scope.selectSlot.format('X')
+      var selectedDateJSON = $scope.selectSlotStart.format('X')
       if($scope.location.coords){
         args={
         "service":$scope.service_type,

@@ -3,7 +3,10 @@
 angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog','ngSanitize','ui.scrollfix','ui.keypress','duScroll','leaflet-directive','cgBusy'])
   .value('duScrollGreedy', true)
   .config(['$routeProvider','RestangularProvider',function($routeProvider,RestangularProvider){
-    $routeProvider.when('/admin/orders', {
+    $routeProvider.when('/admin/serviceprovider/add', {
+        templateUrl: 'views/addserviceprovider.html',
+        controller: 'AdminCtrl',
+      }).when('/admin/orders', {
         templateUrl: 'views/order.html',
         controller: 'OrderCtrl',
       }).when('/admin/orders/:orderid/details', {
