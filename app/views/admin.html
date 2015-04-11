@@ -27,9 +27,10 @@
         <td>Skills</td>
         <td>Working hours</td>
         <td>Experience</td>
+        <td>Availability</td>
         <td>Home Location</td>
         <td>Office Location</td>
-        <tr ng-show="service_provider.availability" ng-repeat='service_provider in allServiceProviders | filter:filterText.skill'>
+        <tr ng-repeat='service_provider in allServiceProviders | filter:filterText.skill'>
             <td ng-model="service_provider.user.name">{{service_provider.id}}</td>
             <td ng-model="service_provider.user.name">{{service_provider.user.name}}</td>
             <td ng-model="service_provider.user.name">{{service_provider.user.email}}</td>
@@ -39,6 +40,7 @@
             </td>
             <td ng-model="service_provider.user.name">{{service_provider.day_start/12}}:00 to {{service_provider.day_end/12 }}:00</td>
             <td ng-model="service_provider.user.name">{{service_provider.experience}}</td>
+            <td ng-model="service_provider.user.name">{{service_provider.availability}}</td>
             <td ng-model="service_provider.user.name">
                 <a class="blue" target="_" href="https://maps.google.com/?q={{service_provider.home_location[0]}},{{service_provider.home_location[1]}}" ><i class="fa fa-map-marker fa-3x"></i></a>
             </td>
