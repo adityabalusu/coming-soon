@@ -20,6 +20,7 @@
     <div class="panel panel-default">
       <table class="table">
         <td>Order ID</td>
+        <td>Service</td>
         <td>Booked time</td>
         <td>Request</td>
         <td>Scheduled time</td>
@@ -29,6 +30,7 @@
         <td>Actions</td>
         <tr ng-repeat='order in orders'>
             <td>{{order.id}}</td>
+            <td>{{order.service}}</td>
             <td>{{moment.unix(order.created).format('MMM DD HH:mm')}}</td>
             <td>{{order.request}}</td>
             <td>{{moment.unix(order.scheduled).format('MMM DD HH:mm')}}</td>

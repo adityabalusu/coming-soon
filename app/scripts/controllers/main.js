@@ -11,6 +11,8 @@ angular.module('geekValetLanding')
     $scope.location ={};
     $scope.loggedin = false;
     $scope.laundrySkills=['Wash + Iron','Wash', 'Iron']
+    $scope.cookSkills=['Non-Veg','Only Veg']
+    $scope.cookDetails=['Breakfast','Lunch','Dinner']
     $scope.plumberSkills=['Repair','Installation']
     $scope.elecSkills=['Repair','Installation']
     $scope.document = $document;
@@ -148,6 +150,7 @@ angular.module('geekValetLanding')
       $scope.location_denied = true;
     }
     $scope.SelectTimeSlot=function(event){
+      $scope.selectedDetails = [];
       if($.isEmptyObject($scope.location)){
         if (navigator.geolocation) {
             $scope.fetchLocation = $q.defer();
@@ -254,6 +257,20 @@ angular.module('geekValetLanding')
     $scope.selectServingArea = function(area){
         $scope.selected.area = area;
     }
+    $scope.addCookDetails = function(details){
+      var detailsitem = {
+          "name":details,
+          "quantity":$scope.selected.number
+        }
+      var detailsIndex = $scope.selectedDetails.filter(function(item){
+        return item.name == detailsitem.name;
+      })
+      if(detailsIndex.length ==0){
+        $scope.selectedDetails.push(detailsitem)
+      }else{
+        $scope.selectedDetails.splice(detailsIndex, 1)
+      }
+    }
     $scope.OrderSubmit = function(){
       var args;
       var selectedDateJSON = $scope.selectSlotStart.format('X')
@@ -261,6 +278,7 @@ angular.module('geekValetLanding')
         args={
         "service":$scope.service_type,
         "request":$scope.selected.skill+"||"+$scope.selected.requestText,
+        "details":{"items":$scope.selectedDetails},
         "location":[$scope.location.coords.latitude,$scope.location.coords.longitude],
         "location_permitted":true,
         "scheduled":selectedDateJSON,
@@ -271,6 +289,7 @@ angular.module('geekValetLanding')
         args={
           "service":$scope.service_type,
           "request":$scope.selected.skill+"||"+$scope.selected.requestText,
+          "details":{"items":$scope.selectedDetails},
           "location_permitted":false,
           "scheduled":selectedDateJSON,
           "address":$scope.user.address
