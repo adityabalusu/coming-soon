@@ -10,6 +10,7 @@ angular.module('geekValetLanding')
            user:Restangular.one('user'),
            missedorder:Restangular.all('missedorder'),
            allServiceProviders:Restangular.all('admin/serviceprovider'),
-           allOrders:Restangular.all('admin/order')
+           allOrders:Restangular.all('admin/order'),
+           allServiceUsers:Restangular.all('admin/user')
          }
   }]);
