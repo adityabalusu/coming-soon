@@ -1,11 +1,55 @@
-<button ng-click='addServiceProvider()'>Add</button>
-<a class="btn btn-primary" href="/#/admin/orders">Orders</a>
+<div class="admin-wrapper">
     
-<div ng-repeat=' service_provider in allServiceProviders'>
-    <br>
-    <input ng-model="service_provider.cost"></input>
-    <input ng-model="service_provider.user.email"></input>
-    <input ng-model="service_provider.user.phone_number"></input>
-    <button ng-click='service_provider.put()'>Update</button>
-    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-primary" ng-click='addServiceProvider()'>
+                <span><i class="fa fa-plus-circle"></i></span>
+                Add Service Provider
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a class="btn btn-warning" href="/#/admin/orders">
+                Go to Orders
+                <span><i class="fa fa-arrow-circle-right"></i></span>
+            </a>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">Service Providers</div>
+      <table class="table">
+        <td>SP ID</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone</td>
+        <td>Skills</td>
+        <td>Working hours provided</td>
+        <td>Home Location</td>
+        <td>Experience</td>
+        <td>Office Location</td>
+        <td>Verified</td>
+        <tr ng-show="service_provider.availability" ng-repeat='service_provider in allServiceProviders | filter:filterText.skill'>
+            <td ng-model="service_provider.user.name">{{service_provider.id}}</td>
+            <td ng-model="service_provider.user.name">{{service_provider.user.name}}</td>
+            <td ng-model="service_provider.user.name">{{service_provider.user.email}}</td>
+            <td ng-model="service_provider.user.name">{{service_provider.user.phone_number}}</td>
+            <td ng-model="service_provider.user.name">
+                <div ng-repeat="skill in fetchKeys(service_provider.skills)"> {{skill}}</div>
+            </td>
+            <td ng-model="service_provider.user.name">{{service_provider.day_start/12}}:00 to {{service_provider.day_end/12 }}:00</td>
+            <td ng-model="service_provider.user.name">
+                <a class="blue" target="_" href="https://maps.google.com/?q={{service_provider.home_location[0]}},{{service_provider.home_location[1]}}" ><i class="fa fa-map-marker fa-3x"></i></a>
+            </td>
+            <td ng-model="service_provider.user.name">{{service_provider.experience}}</td>
+            <td ng-model="service_provider.user.name">
+                <a class="orange" target="_" href="https://maps.google.com/?q={{service_provider.office_location[0]}},{{service_provider.office_location[1]}}" ><i class="fa fa-map-marker fa-3x"></i></a>
+            </td>
+            <td ng-model="service_provider.user.name">{{service_provider.user.verified}}</td>
+            <td ng-model="service_provider.user.name"></td>
+        </tr>
+        
+
+      </table>
+    </div>
+
 </div>

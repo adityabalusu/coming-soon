@@ -1,10 +1,29 @@
-<button ng-click='addOrder()'>Add</button>
+
+<div class="row">
+    <div class="col-md-6">
+        <a class="btn btn-warning" href="/#/admin">
+            <span><i class="fa fa-arrow-circle-left"></i></span>
+            Go to Service Providers
+        </a>
+    </div>
+    <div class="col-md-6">
+            <a class="btn btn-primary" ng-click='addServiceProvider()'>
+                <span><i class="fa fa-plus-circle"></i></span>
+                Add Order
+            </a>
+    </div>
+</div>
 <div ng-repeat="order in orders">
     <br>
     <input ng-model="order.id"></input>
     <input ng-model="order.address"></input>
     <input ng-model="order.status"></input>
-    <button class="btn btn-primary" ng-click='openAssignmentDialog(order)' >Assign</button>
+    <span ng-switch='order.status'>
+        <button class="btn btn-primary"  ng-switch-when='created' ng-click='openAssignmentDialog(order)' >Assign</button>
+        <button class="btn btn-primary"  ng-switch-when='assigned' ng-click="changeStatus(order,'confirmed')" >Confirm</button>
+        <button class="btn btn-primary"  ng-switch-when='confirmed' ng-click="changeStatus(order,'processing')" >Start Processing</button>
+        <button class="btn btn-primary"  ng-switch-when='processing' ng-click="changeStatus(order,'completed')" >Complete Order</button>
+    </span>
     <a class="btn btn-warning" href="/#/admin/orders/{{order.id}}/details">Details</a>
     <br>
 </div>

@@ -10,7 +10,9 @@ $fa-font-path: "../bower_components/fontawesome/fonts/";
 @import 'timeslots';
 @import 'alignments';
 
-
+.admin-wrapper{
+  padding:20px 5px;
+}
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;

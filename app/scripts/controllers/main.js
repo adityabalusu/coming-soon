@@ -257,7 +257,7 @@ angular.module('geekValetLanding')
       if($scope.location.coords){
         args={
         "service":$scope.service_type,
-        "request":$scope.selected.skill,
+        "request":$scope.selected.skill+"||"+$scope.selected.requestText,
         "location":[$scope.location.coords.latitude,$scope.location.coords.longitude],
         "location_permitted":true,
         "scheduled":selectedDateJSON,
@@ -267,7 +267,7 @@ angular.module('geekValetLanding')
       }else{
         args={
           "service":$scope.service_type,
-          "request":$scope.selected.skill,
+          "request":$scope.selected.skill+"||"+$scope.selected.requestText,
           "location_permitted":false,
           "scheduled":selectedDateJSON,
           "address":$scope.user.address

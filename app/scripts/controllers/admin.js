@@ -9,4 +9,10 @@ angular.module('geekValetLanding')
       var service_provider ={"user":{"phone_number":"","email":""}} 
       $scope.allServiceProviders.unshift(service_provider)
     }
+
+    $scope.fetchKeys = function(object){
+        if(object){
+            return _.keys(object)
+        }
+    }
   }]);

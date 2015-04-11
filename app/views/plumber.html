@@ -10,12 +10,12 @@
 
         <div class='input-group align-center-55 input-group-lg' ng-show="selected.skill=='Repair'">
             <h2>What seems to be the problem?</h2>
-            <textarea type="text" class="form-control" placeholder="Sink is clogged"></textarea>
+            <textarea type="text" class="form-control" ng-model='selected.requestText' placeholder="Sink is clogged"></textarea>
         </div>
 
         <div class='input-group align-center-55 input-group-lg' ng-show="selected.skill=='Installation'">
             <h2>What needs to be installed?</h2>
-            <textarea type="text" class="form-control" placeholder="New sink needs to be installed"></textarea>
+            <textarea type="text" class="form-control" ng-model='selected.requestText' placeholder="New sink needs to be installed"></textarea>
         </div>
     </div>
 
