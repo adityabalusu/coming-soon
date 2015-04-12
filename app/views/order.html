@@ -61,6 +61,8 @@
             </td>
             <td>
                 <button ng-hide="order.status=='cancelled'" class="btn btn-danger" ng-click="changeStatus(order,'cancelled')" >Cancel</button>
+                <button ng-show="order.status=='cancelled'" class="btn btn-success" ng-click="openAssignmentDialog(order)" >Re-open</button>
+
             </td>
             
         </tr>
