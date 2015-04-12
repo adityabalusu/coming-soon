@@ -27,6 +27,7 @@
         <td>Skills</td>
         <td>Working hours</td>
         <td>Experience</td>
+        <td>Details</td>
         <td>Availability</td>
         <td>Home Address</td>
         <tr ng-repeat='service_provider in allServiceProviders | filter:filterText.skill'>
@@ -39,6 +40,7 @@
             </td>
             <td >{{service_provider.day_start/12}}:00 to {{service_provider.day_end/12 }}:00</td>
             <td >{{service_provider.experience}}</td>
+            <td >{{service_provider.details.message}}</td>
             <td >{{service_provider.availability}}</td>
             <td >{{service_provider.user.address}}</td>
             <!--td >
