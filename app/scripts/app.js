@@ -15,7 +15,10 @@ angular.module('geekValetLanding', [
    ])
   .value('duScrollGreedy', true)
   .config(['$routeProvider','RestangularProvider',function($routeProvider,RestangularProvider){
-    $routeProvider.when('/admin/serviceprovider/:spid/edit', {
+    $routeProvider.when('/feedback/:rating/:orderinfo', {
+        templateUrl: 'views/editspdetails.html',
+        controller: 'EditspCtrl',
+      }).when('/admin/serviceprovider/:spid/edit', {
         templateUrl: 'views/editspdetails.html',
         controller: 'EditspCtrl',
       }).when('/admin/serviceprovider/add', {

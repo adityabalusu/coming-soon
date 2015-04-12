@@ -29,25 +29,28 @@
         <td>Experience</td>
         <td>Availability</td>
         <td>Home Address</td>
-        <td>Actions</td>
         <tr ng-repeat='service_provider in allServiceProviders | filter:filterText.skill'>
-            <td ng-model="service_provider.user.name">{{service_provider.id}}</td>
-            <td ng-model="service_provider.user.name">{{service_provider.user.name}}</td>
-            <td ng-model="service_provider.user.name">{{service_provider.user.email}}</td>
-            <td ng-model="service_provider.user.name">{{service_provider.user.phone_number}}</td>
-            <td ng-model="service_provider.user.name">
+            <td>{{service_provider.id}}</td>
+            <td>{{service_provider.user.name}}</td>
+            <td >{{service_provider.user.email}}</td>
+            <td >{{service_provider.user.phone_number}}</td>
+            <td >
                 <div ng-repeat="skill in fetchKeys(service_provider.skills)"> {{skill}}</div>
             </td>
-            <td ng-model="service_provider.user.name">{{service_provider.day_start/12}}:00 to {{service_provider.day_end/12 }}:00</td>
-            <td ng-model="service_provider.user.name">{{service_provider.experience}}</td>
-            <td ng-model="service_provider.user.name">{{service_provider.availability}}</td>
-            <td ng-model="service_provider.user.name">{{service_provider.user.address}}</td>
-            <!--td ng-model="service_provider.user.name">
+            <td >{{service_provider.day_start/12}}:00 to {{service_provider.day_end/12 }}:00</td>
+            <td >{{service_provider.experience}}</td>
+            <td >{{service_provider.availability}}</td>
+            <td >{{service_provider.user.address}}</td>
+            <!--td >
                 <a class="blue" target="_" href="https://maps.google.com/?q={{service_provider.home_location[0]}},{{service_provider.home_location[1]}}" ><i class="fa fa-map-marker fa-3x"></i></a>
             </td-->
             <td>
                 <a class="btn btn-warning" href="/#/admin/serviceprovider/{{service_provider.id}}/edit">Edit</a>
             </td>
+            <td>
+                <button ng-hide="service_provider.user.verified" class="btn btn-success" ng-click="verifySP(service_provider)">Verify</button>
+            </td>
+            
             
         </tr>
         
