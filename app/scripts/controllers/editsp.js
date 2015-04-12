@@ -22,7 +22,7 @@ angular.module('geekValetLanding')
         $scope.service_provider.day_start = $scope.start_time.getHours()*12 + $scope.start_time.getMinutes()/5;
     }
     $scope.end_time_changed =function(){
-        $scope.service_provider.day_end = $scope.end_time.getHours()*12 + $scope.end_time.getMinutes()/5;
+        $scope.service_provider.day_end = ($scope.end_time.getHours()*12 + $scope.end_time.getMinutes()/5)-1;
     }
     $scope.uploadFiles = function($file,type){
         $upload.upload({

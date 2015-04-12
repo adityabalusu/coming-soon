@@ -14,7 +14,7 @@ angular.module('geekValetLanding')
         $scope.new_service_provider.day_start = $scope.start_time.getHours()*12 + $scope.start_time.getMinutes()/5;
     }
     $scope.end_time_changed =function(){
-        $scope.new_service_provider.day_end = $scope.end_time.getHours()*12 + $scope.end_time.getMinutes()/5;
+        $scope.new_service_provider.day_end = ($scope.end_time.getHours()*12 + $scope.end_time.getMinutes()/5)-1;
     }
     $scope.addSkills = function(skill){
       $scope.new_skills[skill] = [];
