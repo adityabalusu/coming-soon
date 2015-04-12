@@ -7,7 +7,7 @@ angular.module('geekValetLanding')
     $scope.end_time = new moment.unix(1428766200);
     api.admin.one('serviceprovider',routeParams.spid).get().then(function(response){
         $scope.service_provider = response
-        if($scope.service_provider.skills ==null){
+        if($scope.service_provider.skills==null){
             $scope.service_provider.skills ={}
         }
         

@@ -52,6 +52,7 @@
             <td>
                 <span ng-switch='order.status'>
                     <button class="btn btn-primary"  ng-switch-when='created' ng-click='openAssignmentDialog(order)' >Assign</button>
+                    <button class="btn btn-primary"  ng-switch-when='assigned' ng-click='openAssignmentDialog(order)' >Re-Assign</button>
                     <button class="btn btn-primary"  ng-switch-when='assigned' ng-click="changeStatus(order,'confirmed')" >Confirm</button>
                     <button class="btn btn-primary"  ng-switch-when='confirmed' ng-click="changeStatus(order,'processing')" >Start Job</button>
                     <button class="btn btn-primary"  ng-switch-when='processing' ng-click="changeStatus(order,'completed')" >End Job</button>

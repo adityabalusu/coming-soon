@@ -10,7 +10,7 @@ angular.module('geekValetLanding')
         api.allServiceProviders.one(sp_id).get().then(function(response){
             $scope.assignedSP = response
         })
-        api.allServiceUsers.one(customer_id).get().then(function(response){
+        api.admin.one('user',customer_id).get().then(function(response){
             $scope.customer = response
         })
     })
