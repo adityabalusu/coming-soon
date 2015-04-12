@@ -1,11 +1,26 @@
 'use strict';
 
-angular.module('geekValetLanding', ['ngRoute','restangular','ngDialog','ngSanitize','ui.scrollfix','ui.keypress','duScroll','leaflet-directive','cgBusy'])
+angular.module('geekValetLanding', [
+   'ngRoute',
+   'restangular',
+   'ngDialog',
+   'ngSanitize',
+   'ui.scrollfix',
+   'ui.bootstrap',
+   'ui.keypress',
+   'duScroll',
+   'leaflet-directive',
+   'cgBusy',
+   'angularFileUpload'
+   ])
   .value('duScrollGreedy', true)
   .config(['$routeProvider','RestangularProvider',function($routeProvider,RestangularProvider){
-    $routeProvider.when('/admin/serviceprovider/add', {
+    $routeProvider.when('/admin/serviceprovider/:spid/edit', {
+        templateUrl: 'views/editspdetails.html',
+        controller: 'EditspCtrl',
+      }).when('/admin/serviceprovider/add', {
         templateUrl: 'views/addserviceprovider.html',
-        controller: 'AdminCtrl',
+        controller: 'AddspCtrl',
       }).when('/admin/orders', {
         templateUrl: 'views/order.html',
         controller: 'OrderCtrl',

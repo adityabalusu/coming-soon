@@ -28,8 +28,8 @@
         <td>Working hours</td>
         <td>Experience</td>
         <td>Availability</td>
-        <td>Home Location</td>
-        <td>Office Location</td>
+        <td>Home Address</td>
+        <td>Actions</td>
         <tr ng-repeat='service_provider in allServiceProviders | filter:filterText.skill'>
             <td ng-model="service_provider.user.name">{{service_provider.id}}</td>
             <td ng-model="service_provider.user.name">{{service_provider.user.name}}</td>
@@ -41,11 +41,12 @@
             <td ng-model="service_provider.user.name">{{service_provider.day_start/12}}:00 to {{service_provider.day_end/12 }}:00</td>
             <td ng-model="service_provider.user.name">{{service_provider.experience}}</td>
             <td ng-model="service_provider.user.name">{{service_provider.availability}}</td>
-            <td ng-model="service_provider.user.name">
+            <td ng-model="service_provider.user.name">{{service_provider.user.address}}</td>
+            <!--td ng-model="service_provider.user.name">
                 <a class="blue" target="_" href="https://maps.google.com/?q={{service_provider.home_location[0]}},{{service_provider.home_location[1]}}" ><i class="fa fa-map-marker fa-3x"></i></a>
-            </td>
-            <td ng-model="service_provider.user.name">
-                <a class="orange" target="_" href="https://maps.google.com/?q={{service_provider.office_location[0]}},{{service_provider.office_location[1]}}" ><i class="fa fa-map-marker fa-3x"></i></a>
+            </td-->
+            <td>
+                <a class="btn btn-warning" href="/#/admin/serviceprovider/{{service_provider.id}}/edit">Edit</a>
             </td>
             
         </tr>

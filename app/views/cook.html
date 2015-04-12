@@ -75,7 +75,7 @@
     </div>
 
     <div class='centered'>
-      <h2> Select first appointment slot</h2>
+      <h2> Book Timeslot</h2>
     </div>
     <time-slots></time-slots>
     <time-ranges></time-ranges>
@@ -87,7 +87,7 @@
 
 <div ng-show='ordercomplete'>
     <h1>Thank you</h1>
-    <h3>We'll pick them up between {{selectedSlotStartHumanized}} & {{selectedSlotEndHumanized}} </h3>
+    <h3>We'll send a cook on {{selectedSlotStartHumanizedDay}} between {{selectedSlotStartHumanizedTime}} & {{selectedSlotEndHumanized}} </h3>
     <button class="btn btn-warning" ng-click='ModifyOrder()'>Order Another</button>
 
 
