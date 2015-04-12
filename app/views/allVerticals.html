@@ -8,33 +8,34 @@
     <ng-include src="'views/plumber.html'" ng-show="service_type=='plumber'"> </ng-include>
     <ng-include src="'views/electrician.html'" ng-show="service_type=='electrician'"> </ng-include>
     <ng-include src="'views/cook.html'" ng-show="service_type=='cook'"> </ng-include>
-    <form ng-show='loggedin && !timeunselected && !ordercomplete'>
+    <form name="registration" ng-show='loggedin && !timeunselected && !ordercomplete'>
         <h1>Order Details</h1>
         <div class='details'>
             <div class='p10'>
                  <label for="custname">Name</label>
                 <div class='input-group input-group-lg'>
-                    <input type="text" class="form-control" id="custname" required ng-model='user.name' placeholder="Name">
+                    <input type="text" class="form-control" id="custname" ng-model='user.name' placeholder="Name">
                 </div>
             </div>
             <div class='p10'>
                 <label for="custphone">Phone number</label>
                 <div class='input-group input-group-lg'>
-                    <input type="text" class="form-control" id="custphone" required ng-model='user.phone_number' placeholder="Phone Number">
+                    <input type="tel" class="form-control" ng-minlength="10" ng-maxlength="10" id="custphone" name="phone" ng-model='user.phone_number' placeholder="Phone Number">
+                    <span ng-show="((registration.phone.$error.minlength || registration.phone.$error.maxlength) && registration.phone.$dirty) ">Phone number should be 10 digits</span>
                 </div>
             </div>
             <time-ranges fixed='true'></time-ranges>
             <div class='p10'>
                 <label for="locality">Locality</label>
                 <div class='input-group input-group-lg'>
-                    <input ng-hide="selected.area" type="text" class="form-control" required ng-model='region' placeholder="Name">
-                    <input ng-show="selected.area" type="text" class="form-control" required ng-model='selected.area' placeholder="Name">
+                    <input ng-hide="selected.area" type="text" class="form-control"  ng-model='region' placeholder="Name">
+                    <input ng-show="selected.area" type="text" class="form-control"  ng-model='selected.area' placeholder="Name">
                 </div>
             </div>
             <div class='p10'>
                 <label for="locality">Exact Address</label>
                 <div class='input-group input-group-lg'>
-                    <textarea type="text" class="form-control" required ng-model='user.address' placeholder="Address ">
+                    <textarea type="text" class="form-control" ng-model='user.address' placeholder="Address ">
                     </textarea>
                 </div>
             </div>
