@@ -60,7 +60,7 @@
                 <a class="btn btn-warning" href="/#/admin/orders/{{order.id}}/details">Details</a>
             </td>
             <td>
-                <button class="btn btn-danger" ng-click="changeStatus(order,'cancelled')" >Cancel</button>
+                <button ng-hide="order.status=='cancelled'" class="btn btn-danger" ng-click="changeStatus(order,'cancelled')" >Cancel</button>
             </td>
             
         </tr>
