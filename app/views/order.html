@@ -22,6 +22,7 @@
         <td>Order ID</td>
         <td>Service</td>
         <td>Booked time</td>
+        <td>Booked SP ID</td>
         <td>Request</td>
         <td>Scheduled time</td>
         <td>Additional details</td>
@@ -33,6 +34,7 @@
             <td>{{order.id}}</td>
             <td>{{order.service}}</td>
             <td>{{moment.unix(order.created).format('MMM DD HH:mm')}}</td>
+            <td>{{order.service_provider_id}}</td>
             <td>{{order.request}}</td>
             <td>{{moment.unix(order.scheduled).format('MMM DD HH:mm')}}</td>
             <td>
