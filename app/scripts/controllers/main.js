@@ -11,7 +11,7 @@ angular.module('geekValetLanding')
     $scope.location ={};
     $scope.loggedin = false;
     $scope.laundrySkills=['Wash + Iron','Wash', 'Iron']
-    $scope.cookSkills=['Non-Veg','Only Veg']
+    $scope.cookSkills=['North Indian Non-Veg','South Indian Non-Veg','North Indian Veg','South Indian Veg']
     $scope.cookDetails=['Breakfast','Lunch','Dinner']
     $scope.plumberSkills=['Repair','Installation']
     $scope.elecSkills=['Repair','Installation']
