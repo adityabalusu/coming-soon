@@ -15,7 +15,10 @@ angular.module('geekValetLanding', [
    ])
   .value('duScrollGreedy', true)
   .config(['$routeProvider','RestangularProvider',function($routeProvider,RestangularProvider){
-    $routeProvider.when('/feedback/:rating/:orderinfo', {
+    $routeProvider.when('/admin/missedorders', {
+        templateUrl: 'views/missedorders.html',
+        controller: 'MissedordersCtrl',
+      }).when('/feedback/:rating/:orderinfo', {
         templateUrl: 'views/editspdetails.html',
         controller: 'EditspCtrl',
       }).when('/admin/serviceprovider/:spid/edit', {
@@ -58,6 +61,11 @@ angular.module('geekValetLanding', [
   .run(['$rootScope','helpText','$anchorScroll',function(rootScope,helpText,$anchorScroll){
         rootScope.helpText = helpText;
         rootScope.moment = moment
+        rootScope.fetchKeys = function(object){
+        if(object){
+            return _.keys(object)
+        }
+    }
         //$anchorScroll.yOffset = 52;
          
       }]);
