@@ -230,7 +230,8 @@ angular.module('geekValetLanding')
             ngDialog.open({
               template:'views/feedback.html',
               scope:$scope,
-              className: 'ngdialog-theme-default'
+              className: 'ngdialog-theme-default',
+              closeByDocument:false
             })      
           });
         }else{
