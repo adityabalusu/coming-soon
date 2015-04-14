@@ -14,7 +14,8 @@ angular.module('geekValetLanding', [
    'angularFileUpload'
    ])
   .value('duScrollGreedy', true)
-  .config(['$routeProvider','RestangularProvider',function($routeProvider,RestangularProvider){
+  .config(['$routeProvider','RestangularProvider','$locationProvider',function($routeProvider,RestangularProvider,$locationProvider){
+    
     $routeProvider.when('/admin/missedorders', {
         templateUrl: 'views/missedorders.html',
         controller: 'MissedordersCtrl',
@@ -42,6 +43,7 @@ angular.module('geekValetLanding', [
       })
       
     RestangularProvider.setBaseUrl('/api');
+    $locationProvider.html5Mode(true);
 
     RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
       var extractedData;
