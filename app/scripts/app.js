@@ -44,7 +44,6 @@ angular.module('geekValetLanding', [
       
     RestangularProvider.setBaseUrl('/api');
     $locationProvider.html5Mode(true);
-
     RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
       var extractedData;
       // .. to look for getList operations
