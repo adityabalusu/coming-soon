@@ -1,0 +1,73 @@
+<div class="admin-wrapper">
+    <div class='centered'>
+        <h1>Orders</h1>
+    </div>
+
+    <div class="row admin-add-buttons">
+        <div class="col-md-6">
+                <a class="btn btn-primary float-left" ng-click='addServiceProvider()'>
+                    <span><i class="fa fa-plus-circle"></i></span>
+                    Add Order
+                </a>
+        </div>
+        <div class="col-md-6">
+            <a class="btn btn-warning float-right" href="/#/admin">
+                <span><i class="fa fa-arrow-circle-left"></i></span>
+                Go to Service Providers
+            </a>
+        </div>
+    </div>
+    <div class="panel panel-default">
+      <table class="table">
+        <td>Order ID</td>
+        <td>Service</td>
+        <td>Booked time</td>
+        <td>Assigned SP ID</td>
+        <td>Request</td>
+        <td>Scheduled time</td>
+        <td>Additional details</td>
+        <td>Address</td>
+        <td>Order Location</td>
+        <td>Status</td>
+        <td>Actions</td>
+        <tr ng-repeat='order in orders'>
+            <td>{{order.id}}</td>
+            <td>{{order.service}}</td>
+            <td>{{moment.unix(order.created).format('MMM DD HH:mm')}}</td>
+            <td>{{order.service_provider_id}}</td>
+            <td>{{order.request}}</td>
+            <td>{{moment.unix(order.scheduled).format('MMM DD HH:mm')}}</td>
+            <td>
+                <div ng-switch="order.service">
+                    <span ng-switch-when="cook" ng-repeat="detail in order.details.items">{{detail.name}}, </span>
+                    <div ng-switch-when="cook">Number of people:{{order.details.items[0].quantity}}</div>
+                </div>
+
+            </td>
+            <td>{{order.address}}</td>
+            <td ng-model="service_provider.user.name">
+                <a class="orange" target="_" href="https://maps.google.com/?q={{order.location[0]}},{{order.location[1]}}" ><i class="fa fa-map-marker fa-3x"></i></a>
+            </td>
+            <td>{{order.status}}</td>
+            <td>
+                <span ng-switch='order.status'>
+                    <button class="btn btn-primary"  ng-switch-when='created' ng-click='openAssignmentDialog(order)' >Assign</button>
+                    <button class="btn btn-primary"  ng-switch-when='assigned' ng-click='openAssignmentDialog(order)' >Re-Assign</button>
+                    <button class="btn btn-primary"  ng-switch-when='assigned' ng-click="changeStatus(order,'confirmed')" >Confirm</button>
+                    <button class="btn btn-primary"  ng-switch-when='confirmed' ng-click="changeStatus(order,'processing')" >Start Job</button>
+                    <button class="btn btn-primary"  ng-switch-when='processing' ng-click="changeStatus(order,'completed')" >End Job</button>
+                </span>
+                <a class="btn btn-warning" href="/#/admin/orders/{{order.id}}/details">Details</a>
+            </td>
+            <td>
+                <button ng-hide="order.status=='cancelled'" class="btn btn-danger" ng-click="changeStatus(order,'cancelled')" >Cancel</button>
+                <button ng-show="order.status=='cancelled'" class="btn btn-success" ng-click="openAssignmentDialog(order)" >Re-open</button>
+
+            </td>
+            
+        </tr>
+        
+
+      </table>
+    </div>
+</div>

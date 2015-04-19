@@ -7,25 +7,34 @@ $fa-font-path: "../bower_components/fontawesome/fonts/";
 
 @import 'dialog';
 @import 'formvalidation';
+@import 'timeslots';
+@import 'alignments';
+@import 'admin';
+@import 'admin-color-scheme';
 
+.admin-wrapper{
+  padding:20px 5px;
+}
+.details{
+  text-align:left;
+  
+}
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
 }
-html{
-    background-color:rgb(254,253,244);
-}
 /* Space out content a bit */
 body {
-    background:url('../images/ignore/superman.jpg') no-repeat;
-    background-size:1200px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-position:right bottom;
+  }
+.orange{
+  color:orange;
 }
-
+.logo{
+  padding:80px 10px;
+  width:6%;
+}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -85,40 +94,368 @@ body {
 .marketing p + h4 {
     margin-top: 28px;
 }
-
+.love{
+    font-size:50px;
+    color:crimson;
+    text-align:center !important;
+}        
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
-        max-width: 1230px;
-        .jumbotron{
-            padding: 48px;
+        width:100%;
+        padding:0;
+        
+        .box{
+            padding: 48px 15px 48px 25px;
             position:relative;
-            top:-150px;
+            top:50px;
+            width:50%;
+            h1{
+                color:#f0ad4e;
+            }
+            .tagline{
+                color:white;
+                font-size:20px;
+            }
             h4{
               margin: 20px 0px;
             }
             p{
              color: #999;
+             font-family:kreon;
+             font-size:18px;
             }
-            .email-container {
+            .email-container{
                 padding:0px;
             }
+            .row .p0{
+              padding-right:0px;
+            }
         }
-    }
-
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
     }
     /* Space out the masthead */
     .header {
         margin-bottom: 200px;
     }
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
+    
+}
+/**template stuff**/
+@import url(https://fonts.googleapis.com/css?family=Kreon:400,700);
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+  -webkit-font-smoothing: antialiased;
+  font: normal 14px arial,sans-serif;
+}
+
+.row {
+  margin-left:0px;
+  margin-right:0px;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  margin-top:50px;
+  padding-top:20px;
+  padding-bottom:20px;
+}
+.ngdialog-theme-default{
+  padding-top:50px !important;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+#wrap > .container {
+  padding: 60px 5px 0;
+}
+.container .credit {
+  margin: 20px 0;
+}
+
+#footer {
+  background-color:#414141;
+}
+
+#footer a {
+  color:#efefef;
+}
+
+h1,h2,h3,h4 {
+  font-family: Kreon;
+  vertical-align:middle;
+}
+
+header {
+  background: url(../images/ignore/concierge-red.jpg);
+  height:650px;
+  background-position:left;
+  color:#000000;
+}
+
+header h1,header h2,header h3 a,header a,header a:hover {
+  color:#101010;
+  font-weight:800;
+  text-decoration:none;
+}
+.page-header{
+  border:none;
+}
+header h3 {
+  font-family: 'Kreon', serif;
+  background: #ffcc33;
+  padding:10px;
+  border-radius:3px;
+  font-size:34px;
+  padding:12px 10px 6px 10px;
+}
+
+header .dropdown-menu {
+  top:74px;
+  background: #ffcc33;
+  border-width:0;
+}
+
+h1 {
+  font-size:50px;
+  color:#f0ad4e;
+}
+
+#nav {
+  width: 100%;
+  position:relative;
+  top:-32px;
+}
+.angular-leaflet-map{
+  weight:100%;
+  height:600px;
+}
+#nav.ui-scrollfix {
+   position: fixed;
+   top: 0;
+   z-index:10;
+   -webkit-transition: all .6s ease-in-out;
+   transition: all .6s ease-in-out;
+}
+
+#footer > .container {
+  
+}
+
+#signup{
+  .wrapper-box{
+    padding-top: 30px; 
+  }
+}
+#product{
+  padding-top:52px;
+}
+
+@media (min-width: 767px) {
+  .navbar-nav.nav-justified > li{
+      float:none;
+  }
+}
+.navbar-nav {
+  margin: 1px 1px; 
+}  
+  
+/* customize nav style */
+.navbar-custom {
+    background-color: #2e2e2e;
+    font-weight:700;
+    text-transform:uppercase;
+    border-width:0;
+}
+.navbar-custom  .navbar-nav>li>a {
+    color: #ddd;
+}
+.navbar-custom  .navbar-nav li>a:hover, .navbar-nav li .open, .navbar-custom .navbar-nav .active a  {
+    background-color: #000;
+    -webkit-transition: all .6s ease-in-out;
+    transition: all .6s ease-in-out;
+    color:orange !important;
+}
+.navbar-custom .dropdown-menu{
+    right:0;
+}
+.navbar-custom .navbar-nav>.dropdown>a .caret {
+    border-top-color: #999;
+    border-bottom-color: #999;
+}
+
+.navbar-collapse.in { /*3.0.2 bug workaround*/
+    overflow-y: visible;
+}
+
+.navbar-toggle {
+    outline:0;
+}
+.center-align{
+  margin-right:auto;
+  margin-left:auto;
+  display:block;
+  float:none;
+}
+
+.divider {
+    height:75px;
+}
+
+.panel {
+    border-width:0;
+    background-color:rgba(200,200,200,0.3);
+    text-align: center;
+    cursor:pointer;
+    .panel-body {
+     padding:10px;
+     .lead{
+        font-size:18px;
+        margin-bottom:10px;
+     }
     }
+}
+
+@media (max-width: 768px) {
+    header {
+        height: 95px;
+    }
+}
+
+#map-canvas {
+    width: 100%; 
+    height: 300px;
+    margin: 0;
+    padding: 15px;
+}
+
+.scroll-top {
+   position:fixed;
+   bottom:0;
+   right:6%;
+   z-index:100;
+   background: #ffcc33;
+   font-size:24px;
+   border-top-left-radius:3px;
+   border-top-right-radius:3px;
+}
+.scroll-top a:link,.scroll-top a:visited {
+  color:#222;
+} 
+.contact-us {
+    font-size: 30px;
+}
+
+section {
+  &.map{
+    color:black;
+  }
+  color: #ffffff;
+  min-height: 400px;
+  height: auto !important;
+  height: 100%;
+  padding-top:100px;
+}
+
+.bg-1 {
+    background: url('../images/ignore/services.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bg-2 {
+    background: url('http://www.bootply.com/assets/example/bg_5.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bg-3 {
+    background: url('../images/ignore/chill.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bg-4 {
+    padding-top:30px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(20,20,20,0.2)),to(rgba(255,255,255,0)), color-stop(1,#000));
+}
+.ribbon-wrapper-green {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  .ribbon-green{
+    @extend .ribbon;
+    background-color: #BFDC7A;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45)); 
+    background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45); 
+    background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45); 
+    background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45); 
+    background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45); 
+
+  }
+  .ribbon-orange{
+    @extend .ribbon;
+    background-color: #f0ad4e;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45)); 
+    background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45); 
+    background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45); 
+    background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45); 
+    background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45); 
+
+  }
+  
+}
+.servicetiles .row .p0{
+  padding-right:0;
+}
+.ribbon {
+  font: bold 11px Sans-Serif;
+  color: black;
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  position: relative;
+  padding: 5px 0;
+  left: -5px;
+  top: 15px;
+  width: 120px;
+  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+.align-mid{
+  width:50%;
+  margin:auto;
+}  
+
+.centered .disabled{
+  background-color: #aaa;
+  border-color: #aaa;
 }

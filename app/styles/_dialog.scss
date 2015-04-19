@@ -1,4 +1,8 @@
-.ngdialog-content{
+.ngdialog.ngdialog-theme-default {
+  text-align:center;
+  .ngdialog-content{
+    display:inline-block;
+    width:60%;
     .centered{
         text-align:center;
         h1{
@@ -6,8 +10,21 @@
           .tick{
             color:green;
           }
+          .smile{
+            color:gray;
+          }
         }
         
         
     }
+    .extra-info{
+        padding:10px;
+    }
+  }
+}
+
+.details{
+  .p10{
+    padding:10px;
+  }
 }

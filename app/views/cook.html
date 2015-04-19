@@ -1,0 +1,94 @@
+<div ng-show='timeunselected && !ordercomplete'>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">PRICING</div>
+      <table class='table'>
+         <td> Number of people</td>
+         <td> Daily Once</td>
+         <td> Daily Twice</td>
+         <td> Daily Thrice</td>
+         <tr>
+             <td>1</td>
+             <td>1000</td>
+             <td>1700</td>
+             <td>2500</td>
+             
+        </tr>
+        <tr>
+             <td>2</td>
+             <td>1500</td>
+             <td>2200</td>
+             <td>3000</td>
+             
+        </tr>
+        <tr>
+             <td>3</td>
+             <td>2000</td>
+             <td>2700</td>
+             <td>3500</td>
+             
+        </tr>
+        <tr>
+             <td>4</td>
+             <td>2500</td>
+             <td>3200</td>
+             <td>4000</td>
+             
+        </tr>
+        <tr>
+             <td>5</td>
+             <td>3000</td>
+             <td>4100</td>
+             <td>4900</td>
+             
+        </tr>
+        
+        </table>
+    </div>
+
+    <div class='date-picker' >
+        <h2>Cuisine</h2>
+        <div class='date-item' ng-repeat='skill in cookSkills'>
+                <input ng-model='selected.skill' id="cook-{{skill}}" class="date-item-input" type="radio" value="{{skill}}" name="date">
+                <label for="cook-{{skill}}">
+                  <div class='date-item-day'>{{skill}}</div>
+                </label>
+        </div>
+    </div>
+    <div  ng-show="selected.skill" class='date-picker' >
+        <h2>Number of people</h2>
+        <div class='date-item' ng-repeat='number in [1,2,3,4,5]'>
+                <input ng-model='selected.number' id="cook-{{number}}" class="date-item-input" type="radio" value="{{number}}" name="{{number}}">
+                <label for="cook-{{number}}">
+                  <div class='date-item-day'>{{number}}</div>
+                </label>
+        </div>
+    </div>
+    <div ng-show="selected.number" class='date-picker' >
+        <h2>Details</h2>
+        <div class='date-item' ng-repeat='detail in cookDetails'>
+                <input ng-click="addCookDetails(detail)" id="cook-{{detail}}" class="date-item-input" type="checkbox" value="{{detail}}" name="{{detail}}">
+                <label for="cook-{{detail}}">
+                  <div class='date-item-day'>{{detail}}</div>
+                </label>
+        </div>
+    </div>
+
+    <div class='centered'>
+      <h2> When?</h2>
+    </div>
+    <time-slots></time-slots>
+    <time-ranges></time-ranges>
+    <div class='centered'>
+      <button ng-class='{disabled:!(selected.timerange && selected.skill && selected.number && selectedDetails.length!=0)}' ng-click="poptastic('/api/auth/google/?user_type=service_user&next=/api/close')" class='btn btn-warning'>Book Timeslot</button>
+    </div>
+</div>
+
+
+<div ng-show='ordercomplete'>
+    <h1>Thank you</h1>
+    <h3>We'll send a cook on {{selectedSlotStartHumanizedDay}} between {{selectedSlotStartHumanizedTime}} & {{selectedSlotEndHumanized}} </h3>
+    <button class="btn btn-warning" ng-click='ModifyOrder()'>Order Another</button>
+
+
+</div>

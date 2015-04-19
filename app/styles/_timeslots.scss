@@ -1,0 +1,73 @@
+.date-picker, .range-picker{
+  .date-item{
+    margin:0px 4px;
+    min-width:100px;
+    max-width:100px;
+    display:inline-block;
+
+    .date-item-input{
+      display:none;
+      &:checked{
+        +label,+label .date-item-month,+label .date-item-num,+label .date-item-day{
+          background: none repeat scroll 0 0 #00964b;
+          color: white;
+          height: auto;
+        }
+      }
+    }
+    label{
+        .date-item-month{
+          font-family:'Helvetica';
+          color:#AAA;
+          font-weight:100;
+          font-size:14px;
+          padding-bottom:2px;
+        }
+        .date-item-num{
+          font-family:'Kreon';
+          font-weight:bold;
+          font-size:40px;
+        }
+        .date-to{
+          font-weight:200;
+        }
+        .date-item-day{
+          color:black;
+          font-family:'Helvetica';
+          font-weight:500;
+          font-size:14px;
+          padding-top:2px;
+        }
+        border:1px solid #b4b9b9;
+        border-radius:4px;
+        padding:0.375em;
+        width:100px;
+        text-align:center;
+    }
+  }
+}
+.datepicker-container {
+  .range-picker{
+    display:inline-flex;
+    overflow:auto;
+    width:40%;
+  }
+}
+.fixedtime-container {
+  padding:6px;
+  .fixedtime{
+    .date-item label{
+      .date-item-day,.date-item-month{
+        color:white;
+      }
+      background: none repeat scroll 0 0 #00964b;
+      color: white;
+      height: auto;
+    }
+    text-align:left;
+  }
+}
+
+
+      
+

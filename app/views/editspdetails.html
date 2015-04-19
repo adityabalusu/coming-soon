@@ -1,0 +1,89 @@
+<form role="form" >
+            <div class="col-lg-6">
+                <div class="well well-sm"><strong>Edit Service Provider</strong></div>
+                <div class="form-group">
+                    <label for="InputName">Enter Name</label>
+                    <input type="text" ng-model='service_provider.user.name' class="form-control" name="InputName" id="InputName" placeholder="Enter Name">
+                    
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">Enter Email</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" ng-model='service_provider.user.email' id="InputEmailFirst" name="InputEmail" placeholder="Enter Email" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">Enter Phone Number</label>
+                    <div class="input-group">
+                        <input type="tel" class="form-control" id="phone_number" ng-model='service_provider.user.phone_number' name="phone_number" placeholder="Enter Phone Number" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputMessage">Enter Message</label>
+                    <textarea name="InputMessage" id="InputMessage" ng-model="service_provider.details.message" class="form-control" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="service_type">Select Service type</label>
+                    <div class="dropdown service-type-select">
+                            <button ng-hide="service_provider.skills" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Select Service type
+                                <span class="caret"></span>
+                            </button>
+                            <button ng-show="service_provider.skills" ng-repeat="skill in service_provider.skills" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                {{skill}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="">
+                                <li role="presentation">
+                                    <a role="menuitem" ng-click="addSkills('plumber')" >Plumbers</a>
+                                </li>
+                                <li role="presentation">
+                                    <a role="menuitem" ng-click="addSkills('electrician')" >Electrician</a>
+                                </li>
+                                <li role="presentation">
+                                    <a role="menuitem" ng-click="addSkills('cook')" >Cook</a>
+                                </li>
+                            </ul>
+                    </div>
+                        
+                    
+                    
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 float-left">
+                        <label for="InputEmail">Start Time</label>
+                        <timepicker ng-model="start_time" minute-step="5" ng-change="start_time_changed()"></timepicker>
+                    </div>
+                    <div class="float-right">
+                        <label for="InputEmail">End Time</label>
+                        <timepicker ng-model="end_time" minute-step="5" ng-change="end_time_changed()"></timepicker>
+                    </div>                   
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="InputName">Enter Address</label>
+                    <textarea name="InputMessage" ng-model="service_provider.user.address" id="InputMessage" class="form-control" rows="3"></textarea>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="InputName">Enter Experience</label>
+                    <input name="experience" placeholder="in years" ng-model="service_provider.experience" id="experience" class="form-control"></input>
+                    
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="photo">Upload Photo</label>
+                        <input type="file" id="photo" ng-file-select="uploadFiles($file,'photo')">
+                    </div>
+                </form>
+                
+            </div>
+
+    <input  ng-click="editServiceProvider()" type="submit" name="submit" id="submit" value="Submit" class="btn btn-warning sp-submit">            
+</form>

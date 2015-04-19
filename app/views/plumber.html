@@ -1,0 +1,46 @@
+<div ng-show='timeunselected && !ordercomplete'>
+    <div class='centered'>
+      <h4> Minimum charges are Rs.200/- for minor checks and repairs. You will receive a detailed quote with material charges after inspection
+      </h4>
+    </div> 
+
+    <div class='date-picker' >
+        <h2>Choose</h2>
+        <div class='date-item' ng-repeat='skill in plumberSkills'>
+             <input ng-model='selected.skill' id="plumber-{{skill}}" class="date-item-input" type="radio" value="{{skill}}">
+                <label for="plumber-{{skill}}">
+                  <div class='date-item-day'>{{skill}}</div>
+                </label>
+        </div>
+
+        <div class='input-group align-center-55 input-group-lg' ng-show="selected.skill=='Repair'">
+            <h2>What seems to be the problem?</h2>
+            <textarea type="text" class="form-control" ng-model='selected.requestText' placeholder="Sink is clogged"></textarea>
+        </div>
+
+        <div class='input-group align-center-55 input-group-lg' ng-show="selected.skill=='Installation'">
+            <h2>What needs to be installed?</h2>
+            <textarea type="text" class="form-control" ng-model='selected.requestText' placeholder="New sink needs to be installed"></textarea>
+        </div>
+    </div>
+
+    <div class='centered'>
+      <h2> When?</h2>
+    </div>
+    <time-slots></time-slots>
+    <time-ranges></time-ranges>
+
+    <div class='centered'>
+      <button ng-class='{disabled:!(selected.timerange && selected.skill && selected.requestText)}' ng-click="poptastic('/api/auth/google/?user_type=service_user&next=/api/close')" class='btn btn-warning'>Schedule Appointment</button>
+    </div>
+</div>
+
+
+
+<div ng-show='ordercomplete'>
+    <h1>Thank you</h1>
+    <h3>We'll send a plumber on {{selectedSlotStartHumanizedDay}} between {{selectedSlotStartHumanizedTime}} & {{selectedSlotEndHumanized}} </h3>
+    <button class="btn btn-warning" ng-click='ModifyOrder()'>Order Another</button>
+
+
+</div>

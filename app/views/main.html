@@ -1,4 +1,4 @@
-<div class="header">
+<!--div class="header">
   <ul class="nav nav-pills pull-right">
     <li class="active"><a ng-href="#">Home</a></li>
     <li><a ng-href="#">About</a></li>
@@ -6,8 +6,7 @@
   </ul>
   <h3 class="text-muted">{{helptext}}</h3>
 </div>
-
-<div class="jumbotron email-box">
+<div class='box'>
   <h1>We've got you Covered.</h1>
   <p class="lead">
     {{helpText.staticText.darkContainerText}}
@@ -24,4 +23,313 @@
         </span>
     </div>
   </div>
-</div>
+</div-->
+<!-- Wrap all page content here -->
+<header class="masthead">
+    <div class="container" id='top'>
+    <div class="row">
+    <div class='box'>
+      <h1> Sevame</h1>
+      <p class="lead" ng-bind-html='helpText.staticText.darkContainerText'></p>
+      <p class='tagline'>We've got you covered.</p>
+       <div class="row">
+          <div class="col-sm-3 col-xs-6 p0"  id="laundry" ng-click='SelectTimeSlot($event)'>
+          
+            <div class="panel panel-default">
+
+              <div class="panel-thumbnail">
+                <img src="../images/ignore/laundry.jpg" class="img-responsive">
+                <div class="ribbon-wrapper-green">
+                  <div class="ribbon-green">Laundry</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <!--span class="lead">Book Now</span-->
+                <button class="btn btn-warning" type="button">Book Now </button>
+              </div>
+            </div><!--/panel--> 
+
+          </div><!--/col-->
+          <div class="col-sm-3 col-xs-6 p0" id="plumber" ng-click='SelectTimeSlot($event)'>
+          
+            <div class="panel panel-default">
+              <div class="panel-thumbnail">
+                <img src="../images/ignore/plumber.jpg" class="img-responsive">
+                <div class="ribbon-wrapper-green">
+                  <div class="ribbon-green">Plumbers</div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <!--span class="lead">Book Now</span-->
+                <button class="btn btn-warning" type="button">Book Now </button>
+              </div>
+            </div><!--/panel--> 
+          </div><!--/col-->
+
+
+          <div class="col-sm-3 col-xs-6 p0" id="electrician" ng-click='SelectTimeSlot($event)'>
+              <div class="panel panel-default">
+                <div class="panel-thumbnail">
+                  <img src="../images/ignore/electrician.jpg" class="img-responsive">
+                  <div class="ribbon-wrapper-green">
+                    <div class="ribbon-green">Electricians</div>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <!--span class="lead">Book Now</span-->
+                  <button class="btn btn-warning" type="button">Book Now </button>
+                  
+                </div>
+               </div><!--/panel--> 
+          </div><!--/col-->
+
+
+        </div><!--/row-->
+      
+      <div class="row">
+        
+        <div style="margin:0 25%" class="col-sm-3 col-xs-6 p0" data='cooks' id="cook" ng-click='SelectTimeSlot($event)'>
+        
+          <div class="panel panel-default">
+            <div class="panel-thumbnail">
+              <img src="../images/ignore/cook.jpg" class="img-responsive">
+              <div class="ribbon-wrapper-green">
+                <div class="ribbon-green">Cooks</div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <button class="btn btn-warning" type="button">Book Now </button>
+              
+            </div>
+          </div><!--/panel-->
+        </div><!--/col-->
+
+      </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+</header>
+  
+  
+<!-- Fixed navbar -->
+<div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav" ui-scrollfix >
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav nav-justified">
+          <li du-scrollspy="top" offset='52px'><a href='' ng-click="scrollTo('top',52)" href="">Home</a></li>
+          <li du-scrollspy="product" offset='52px'><a href=""   ng-click="scrollTo('product',52)">Sign up</a></li>
+          <li du-scrollspy="where" offset='52px'><a href=""   ng-click="scrollTo('where',52)">Where?</a></li>
+          <li du-scrollspy="contact" offset='52px'><a href=""   ng-click="scrollTo('contact',52)">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container -->
+</div><!--/.navbar -->
+
+
+<!--div class="container" id='product'>
+  <!--div class="col-sm-10 col-sm-offset-1 .p0">
+    <div class="page-header text-center">
+      <h1>Seva at your <i>fingertip.</i></h1>
+      <p>We are building a platform to tap into people’s available time more efficiently. With a vision where everyone can offer and get services in a single tap - </p>
+      <p>Availing services will never be the same again.</p>
+
+    </div>
+    <div class="">
+      <img class='center-align col-sm-2 col-md-4' alt='iphone' src='../images/ignore/iphone.png'></img>
+    </div-->
+  <!--hr-->
+  <div class="container bg-4" id="product" >
+     <div class="col-sm-8 col-sm-offset-2 text-center">
+      <h1>At your Seva, Always.</h1>
+      <p>Wish we had more services? Tell us by signing up.</p>
+      
+      <div class='wrapper-box'>
+        <div class="email-container col-lg-8 col-sm-offset-2">
+          <div class="input-group">
+              <input type="email" class="form-control" ui-keypress="{'enter':'openDialog()'}" ng-model='user.email' placeholder="your email here...">
+              <span class="input-group-btn">
+                <button class="btn btn-warning" ng-click='openDialog()' type="button">Sign Up </button>
+              </span>
+          </div>
+        </div>
+        <br>
+        <div class="love col-lg-8 col-sm-offset-2">
+         <i class='fa fa-heart '></i>
+        </div>
+      </div>
+
+      
+      
+    </div><!--/col-->
+    
+  
+  </div><!--/container-->
+  <!--div class="servicetiles col-sm-10 col-sm-offset-1 ">
+    <div class="page-header text-center">
+      <h1>On the Platform.</i></h1>
+      <p>Few services to expect at launch.</p>
+      <p>Wish we had more right now? Tell us by signing up or <a href='' ng-click="scrollTo('contact',52)">drop us a word</a> </p>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-2 col-xs-6 p0"  id="laundry" ng-click='SelectTimeSlot($event)'>
+      
+        <div class="panel panel-default">
+
+          <div class="panel-thumbnail">
+            <img src="../images/ignore/laundry.jpg" class="img-responsive">
+            <div class="ribbon-wrapper-green">
+              <div class="ribbon-green">Book Now</div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <p class="lead">Laundry</p>
+          </div>
+        </div><!--/panel--> 
+
+      <!--/div><!--/col-->
+      <!--div class="col-sm-2 col-xs-6 p0" id="plumber" ng-click='SelectTimeSlot($event)'>
+      
+        <div class="panel panel-default">
+          <div class="panel-thumbnail">
+            <img src="../images/ignore/plumber.jpg" class="img-responsive">
+            <div class="ribbon-wrapper-green">
+              <div class="ribbon-green">Book Now</div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <p class="lead">Plumbers</p>
+          </div>
+        </div><!--/panel--> 
+      <!--/div><!--/col-->
+      
+      <!--div class="col-sm-2 col-xs-6 p0" id="electrician" ng-click='SelectTimeSlot($event)'>
+      
+        <div class="panel panel-default">
+          <div class="panel-thumbnail">
+            <img src="../images/ignore/electrician.jpg" class="img-responsive">
+            <div class="ribbon-wrapper-green">
+              <div class="ribbon-green">Book Now</div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <p class="lead">Electricians</p>
+            
+          </div>
+        </div><!--/panel--> 
+
+      <!--/div><!--/col-->
+      <!--div class="col-sm-2 col-xs-6 p0" data='cooks' id="cook" ng-click='SelectTimeSlot($event)'>
+      
+        <div class="panel panel-default">
+          <div class="panel-thumbnail">
+            <img src="../images/ignore/cook.jpg" class="img-responsive">
+            <div class="ribbon-wrapper-green">
+              <div class="ribbon-green">Book now</div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <p class="lead">Cooks</p>
+            
+          </div>
+        </div><!--/panel-->
+      <!--/div><!--/col-->
+
+      <!--div class="col-sm-2 col-xs-6 p0" id="beautician" ng-click='launchingSoon($event)'>
+      
+        <div class="panel panel-default">
+          <div class="panel-thumbnail">
+            <img src="../images/ignore/beautician.jpg" class="img-responsive">
+            <div class="ribbon-wrapper-green">
+              <div class="ribbon-orange">Coming soon</div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <p class="lead">Beauticians</p>
+            
+          </div>
+        </div><!--/panel-->
+      <!--/div><!--/col-->
+      <!--div class="col-sm-2 col-xs-6 p0" id="keymaker" ng-click='launchingSoon($event)'>
+      
+        <div class="panel panel-default">
+          <div class="panel-thumbnail">
+            <img src="../images/ignore/keymaker.jpg" class="img-responsive">
+            <div class="ribbon-wrapper-green">
+              <div class="ribbon-orange">Coming soon</div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <p class="lead">Keymakers</p>
+          </div>
+        </div><!--/panel--> 
+      <!--/div><!--/col-->
+      
+      
+
+      
+       <!--/div> <!--/row-->
+        
+        
+
+      </div><!--/col-->
+  </div>
+<div class="divider" ></div>
+<section class="bg-1" ></section>
+<div class="divider" ></div>
+ <div class="container" id="contact">
+    <div class="col-sm-8 col-sm-offset-2 text-center" >
+      <h1>Contact us</h1>
+      <h3>We'd love to hear from you.</p></h3>
+      <hr>
+      <h4>
+        Find us here.
+      </h4>
+      <ul class="list-inline center-block contact-us" >
+        <li><a target='_' href="http://facebook.com/sevameindia" rel="Publisher"><i class='fa fa-facebook-square'></i></a></li>
+        <li><a target='_'  href="http://twitter.com/sevameindia" rel="Publisher"><i class='fa fa-twitter-square'></i></a></li>
+        <li><a target='_'  href="https://plus.google.com/b/101035182721575907660" rel="Publisher"><i class='fa fa-google-plus-square'></i></a></li>
+        <li><a target='_'  href="http://reddit.com/r/sevame"><i class='fa fa-reddit-square'></i></a></li>
+        <li><a target='_'  href="mailto:contact@sevame.in"><i class='fa fa-envelope'></i></a></li>
+      </ul>
+      <hr>
+      
+      
+    </div><!--/col-->
+</div><!--/container-->
+
+  
+<div class="divider"></div>
+<section class="bg-3" >
+  <div class="col-sm-6 col-sm-offset-3 text-center"><h2>Choose. Connect . Chill .</h2></div>
+</section>
+  
+
+
+<div class="divider" > </div>
+
+
+<div class="container" id="where" >
+    <div class="col-sm-8 col-sm-offset-2 text-center" >
+      
+      <hr>
+      <h3>
+        Currently serving Bangalore.
+      </h3>
+      <hr>
+      
+      
+    </div><!--/col-->
+</div><!--/container-->
+<section class="bg-4 map" >
+  <leaflet center="center" defaults='mapconfig' layers='layers' paths='circle' markers='koramangala' ></leaflet>
+</section>
+
+  
+</div><!--/wrap-->
+
+
+
+  

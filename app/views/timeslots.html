@@ -1,0 +1,20 @@
+<form>
+<div class='timeslot-container'>
+  <div class='datepicker-container'>
+    <div class='date-picker' >
+      <div class='date-item' ng-repeat='timeslot in timeslots'>
+        <input ng-change='selectSlot()' ng-model='selected.date' id="date-{{timeslot.date}}" class="date-item-input" type="radio" value="{{timeslot}}" name="date">
+        <label for="date-{{timeslot.date}}">
+          <div class='date-item-month'>{{moment.unix(timeslot.date).format('MMM')}}</div>
+          <div class='date-item-num'>{{moment.unix(timeslot.date).format('DD')}}</div>
+          <div class='date-item-day'>{{moment.unix(timeslot.date).format('ddd')}}</div>
+        </label>
+      </div>    
+    </div>
+
+  </div>
+
+</div>
+
+
+</form>
