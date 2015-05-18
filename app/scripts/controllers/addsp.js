@@ -3,6 +3,7 @@
 angular.module('geekValetLanding')
   .controller('AddspCtrl',['$scope','Api','$location',function ($scope,api,location) {
     $scope.new_service_provider = {};
+    $scope.new_skills = {};
     $scope.start_time = new moment.unix(1428719400);
     $scope.end_time = new moment.unix(1428766200);
     $scope.createServiceProvider = function(){

@@ -28,6 +28,11 @@
                 <div class="form-group">
                     <label for="service_type">Select Service type</label>
                     <div class="dropdown service-type-select">
+                            {{new_skill}}
+                            <button ng-repeat="skill in fetchKeys(new_skill)" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                {{new_skill}}
+                                <span class="caret"></span>
+                            </button>
                             <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                 Select Service type
                                 <span class="caret"></span>
